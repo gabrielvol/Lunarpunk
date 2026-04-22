@@ -48,7 +48,7 @@
    b) En el archivo `[/src/var/page.PAGEINT.var.inc.php]` para un grupo de paginas
    c) En la pagina donde va a ser usado
 */
-// $form_id = 'formXX'; /* // REF [36*] Form variables */
+// $form_id = 'xyzForm'; /* // REF [36*] Form variables */
 // $form_id_spelled = 'Contactanos';
         
     if($page_redirect) {
@@ -71,10 +71,7 @@
     include($_SERVER['DOCUMENT_ROOT'] . $dir_env . '/common/head.inc.php');
 ?>
 <body id="body" <?php echo $classes_body; ?>>
-    <?php
-        include($_SERVER['DOCUMENT_ROOT'] . $dir_env . '/common/header.inc.php');
-        include($_SERVER['DOCUMENT_ROOT'] . $dir_env . '/common/form.main.send.inc.php');
-    ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . $dir_env . '/common/header.inc.php'); ?>
     <div id="main" <?php echo $classes_main; ?> role="main">
         <?php if($page_redirect): include ($_SERVER['DOCUMENT_ROOT'] . $dir_env . '/common/page.redirect.p.inc.php'); else: /* // REF [53*] Page redirect */ ?>
         

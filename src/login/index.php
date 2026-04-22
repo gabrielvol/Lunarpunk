@@ -49,7 +49,7 @@
    b) En el archivo `[/src/var/page.login.var.inc.php]` para un grupo de paginas
    c) En la pagina donde va a ser usado
 */   
-$form_id = 'formIniciarSesion'; /* // REF [36*] Form variables */
+$form_id = 'iniciarSesionForm'; /* // REF [36*] Form variables */
 $form_id_spelled = $login_title_iniciarSesion;
         
     if($page_redirect) {

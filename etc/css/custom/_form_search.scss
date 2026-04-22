@@ -1,12 +1,12 @@
 /* * NombreDeProyecto * ========================================================
    Search Form Styles | Custom [/etc/css/custom/form_search.scss]
    ========================================================================== */
-//form.searchForm
 @use "var/env_var" as *;
 @use "../scss/var_all_pre" as *;
 
 @use "sass:color";
 @use "sass:map";
+
 .searchForm{
     position: relative;
     

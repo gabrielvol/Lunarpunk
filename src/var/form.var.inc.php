@@ -34,7 +34,7 @@ $captcha_ip_remote = $_SERVER['REMOTE_ADDR'];
    a) De manera global en `[/src/var/form.var.inc.php]` para todo el sitio
    b) En el archivo `[/src/var/page.PAGEINT.var.inc.php]` para un grupo de paginas
    c) En la pagina donde va a ser usado */
-// $form_id = 'formXX'; /* // REF [36*] Form variables */
+// $form_id = 'xyzForm'; /* // REF [36*] Form variables */
 // $form_id_spelled = 'Contactanos';
 
 
@@ -60,58 +60,58 @@ if(!empty($dir_env) && $dir_env !== '/stage'):
     /* test / maqueta */
     /* Si el formulario tiene captcha solamente se va a poder testear en produccion */
     
-    $form_recipient__formMainID = 'tampas@gmail.com';
-    $form_recipient_CC__formMainID = 'gabrielvol@protonmail.com';
-    $form_recipient_BCC__formMainID = 'ggvv@hotmail.com.ar';
+    $form_recipient__mainForm = 'tampas@gmail.com';
+    $form_recipient_CC__mainForm = 'gabrielvol@protonmail.com';
+    $form_recipient_BCC__mainForm = 'ggvv@hotmail.com.ar';
 else:
     /* produ / stage */
     /* Si el formulario tiene captcha solamente se va a poder testear en produccion */
     
-    $form_recipient__formMainID = $site_email_CONTACTO_address;
-    $form_recipient_CC__formMainID = ''; // $site_email_CONTACTO_address;
-    $form_recipient_BCC__formMainID = '';
+    $form_recipient__mainForm = $site_email_CONTACTO_address;
+    $form_recipient_CC__mainForm = ''; // $site_email_CONTACTO_address;
+    $form_recipient_BCC__mainForm = '';
     
 endif;
 
-$form_status_recipient__formMainID = $form_recipient__formMainID;
-$form_status_recipient_mailto__formMainID = 'mailto:' . $form_recipient__formMainID;
+$form_status_recipient__mainForm = $form_recipient__mainForm;
+$form_status_recipient_mailto__mainForm = 'mailto:' . $form_recipient__mainForm;
 
 
 /* // Form Contacto // REF [36] Form variables ------------------------------ *
 if(!empty($dir_env) && $dir_env !== '/stage'):
     /* test / maqueta
     /* Si el formulario tiene captcha solamente se va a poder testear en produccion 
-    $form_recipient__formContacto           = 'tampas@gmail.com';
-    $form_recipient_CC__formContacto        = 'ggvv@hotmail.com.ar';
-    $form_recipient_BCC__formContacto       = 'gabrielvol@protonmail.com';
+    $form_recipient__contactoForm           = 'tampas@gmail.com';
+    $form_recipient_CC__contactoForm        = 'ggvv@hotmail.com.ar';
+    $form_recipient_BCC__contactoForm       = 'gabrielvol@protonmail.com';
 else:
     /* produ / stage
     /* Si el formulario tiene captcha solamente se va a poder testear en produccion 
-    $form_recipient__formContacto           = 'tampas@gmail.com'; // $site_email_CONTACTO_address;
-    $form_recipient_CC__formContacto        = 'ggvv@hotmail.com.ar'; // $site_email_CONTACTO_address; // . ', ' . $site_email_EMAILA_address;
-    $form_recipient_BCC__formContacto       = 'gabrielvol@protonmail.com';
+    $form_recipient__contactoForm           = 'tampas@gmail.com'; // $site_email_CONTACTO_address;
+    $form_recipient_CC__contactoForm        = 'ggvv@hotmail.com.ar'; // $site_email_CONTACTO_address; // . ', ' . $site_email_EMAILA_address;
+    $form_recipient_BCC__contactoForm       = 'gabrielvol@protonmail.com';
 endif;
 
-$form_status_recipient__formContacto        = $form_recipient__formContacto;
-$form_status_recipient_mailto__formContacto = 'mailto:' . $form_recipient__formContacto;
+$form_status_recipient__contactoForm        = $form_recipient__contactoForm;
+$form_status_recipient_mailto__contactoForm = 'mailto:' . $form_recipient__contactoForm;
 */
 
 /* // Form Footer // REF [36] Form variables -------------------------------- *
 if(!empty($dir_env) && $dir_env !== '/stage'):
     /* test / maqueta
     /* Si el formulario tiene captcha solamente se va a poder testear en produccion 
-    $form_recipient__formFooter           = 'tampas@gmail.com';
-    $form_recipient_CC__formFooter        = 'ggvv@hotmail.com.ar';
-    $form_recipient_BCC__formFooter       = 'gabrielvol@protonmail.com';
+    $form_recipient__footerForm           = 'tampas@gmail.com';
+    $form_recipient_CC__footerForm        = 'ggvv@hotmail.com.ar';
+    $form_recipient_BCC__footerForm       = 'gabrielvol@protonmail.com';
 else:
     /* produ / stage
     /* Si el formulario tiene captcha solamente se va a poder testear en produccion 
-    $form_recipient__formFooter           = 'tampas@gmail.com'; // $site_email_CONTACTO_address;
-    $form_recipient_CC__formFooter        = 'ggvv@hotmail.com.ar'; // $site_email_CONTACTO_address; // . ', ' . $site_email_EMAILA_address;
-    $form_recipient_BCC__formFooter       = 'gabrielvol@protonmail.com';
+    $form_recipient__footerForm           = 'tampas@gmail.com'; // $site_email_CONTACTO_address;
+    $form_recipient_CC__footerForm        = 'ggvv@hotmail.com.ar'; // $site_email_CONTACTO_address; // . ', ' . $site_email_EMAILA_address;
+    $form_recipient_BCC__footerForm       = 'gabrielvol@protonmail.com';
 endif;    
 
-$form_status_recipient__formFooter        = $form_recipient__formFooter;
-$form_status_recipient_mailto__formFooter = 'mailto:' . $form_recipient__formFooter;
+$form_status_recipient__footerForm        = $form_recipient__footerForm;
+$form_status_recipient_mailto__footerForm = 'mailto:' . $form_recipient__footerForm;
 */
 ?>

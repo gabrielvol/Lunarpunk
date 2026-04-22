@@ -131,20 +131,20 @@ if($has_form): /* // REF [36] Form variables */ ?>
 
 /* // REF [50] Google reCaptcha
  * Luego de crear los condicionales hay que crear el archivo correspondiente
- * en `[/src/js/__captcha_formXX.js]`
+ * en `[/src/js/__captcha_xyzForm.js]`
  * 
  */
-if($has_captcha == 1 && $form_id == 'formMainID'): ?>
-<script src="<?php echo asset_versioned('/js/_captcha_formMainID.js', $dir_env); ?>"></script>
+if($has_captcha == 1 && $form_id == 'mainForm'): ?>
+<script src="<?php echo asset_versioned('/js/_captcha_mainForm.js', $dir_env); ?>"></script>
 
-<?php /* elseif($has_captcha == 1 && $form_id == 'formContacto'): ?>
-<script src="<?php echo asset_versioned('/js/_captcha_formContacto.js', $dir_env); ?>"></script>
+<?php /* elseif($has_captcha == 1 && $form_id == 'contactoForm'): ?>
+<script src="<?php echo asset_versioned('/js/_captcha_contactoForm.js', $dir_env); ?>"></script>
 
-<?php /* elseif($has_captcha == 1 && $form_id == 'formIniciarSesion'): ?>
-<script src="<?php echo asset_versioned('/js/_captcha_formIniciarSesion.js', $dir_env); ?>"></script>
+<?php /* elseif($has_captcha == 1 && $form_id == 'iniciarSesionForm'): ?>
+<script src="<?php echo asset_versioned('/js/_captcha_iniciarSesionForm.js', $dir_env); ?>"></script>
 
-<?php elseif($has_captcha == 1 && $form_id == 'formRecuperarContrasena'): ?>
-<script src="<?php echo asset_versioned('/js/_captcha_formRecuperarContrasena.js', $dir_env); ?>"></script>
+<?php elseif($has_captcha == 1 && $form_id == 'recuperarContrasenaForm'): ?>
+<script src="<?php echo asset_versioned('/js/_captcha_recuperarContrasenaForm.js', $dir_env); ?>"></script>
 
 <?php */ endif;
 

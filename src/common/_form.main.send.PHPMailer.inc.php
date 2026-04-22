@@ -23,28 +23,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     require_once $phpMailerBase . 'SMTP.php';
     
 /* // Create variables for form data ---------------------------------------- */
-    $data_nombre__formMainID = $_POST['data_nombre__formMainID'];
+    $data_nombre__mainForm = $_POST['data_nombre__mainForm'];
         
     /* El resto de las variables estan en `[/src/common/form.var.data.php]` */
 
 /* // INICIA VALIDACIÓN EN .form_validation_div ----------------------------- *
-    if(!isset($data_nombre__formMainID) || trim($data_nombre__formMainID) == ''){
-        $form_validation_div_msg__formMainID = $form_validation_msg_data_nombre__formMainID;
-        $form_validation_div_class__formMainID = " form_validation_div_invalid";
-        $form_validation_input_class_data_nombre__formMainID = " form_validation_input_invalid";
-        $form_input_autofocus_data_nombre__formMainID = "autofocus";
+    if(!isset($data_nombre__mainForm) || trim($data_nombre__mainForm) == ''){
+        $form_validation_div_msg__mainForm = $form_validation_msg_data_nombre__mainForm;
+        $form_validation_div_class__mainForm = " form_validation_div_invalid";
+        $form_validation_input_class_data_nombre__mainForm = " form_validation_input_invalid";
+        $form_input_autofocus_data_nombre__mainForm = "autofocus";
 
     /* El resto de las variables estan en `[/src/common/form.var.data.php]` */
         
 /* // FIN de validacion en .form_validation_div ----------------------------- */
 
 /* // INICIA VALIDACIÓN en .form_validation_span ---------------------------- */
-    if(!isset($data_nombre__formMainID) || trim($data_nombre__formMainID) == ''){
-        $form_validation_span_msg_data_nombre__formMainID = $form_validation_msg_data_nombre__formMainID;
-        $form_validation_span_msg_data_nombre_en__formMainID = $form_validation_msg_data_nombre_en__formMainID;
-        $form_validation_span_class_data_nombre__formMainID = " form_validation_span_active";
-        $form_validation_input_class_data_nombre__formMainID = " form_validation_input_invalid";
-        $form_input_autofocus_data_nombre__formMainID = "autofocus";
+    if(!isset($data_nombre__mainForm) || trim($data_nombre__mainForm) == ''){
+        $form_validation_span_msg_data_nombre__mainForm = $form_validation_msg_data_nombre__mainForm;
+        $form_validation_span_msg_data_nombre_en__mainForm = $form_validation_msg_data_nombre_en__mainForm;
+        $form_validation_span_class_data_nombre__mainForm = " form_validation_span_active";
+        $form_validation_input_class_data_nombre__mainForm = " form_validation_input_invalid";
+        $form_input_autofocus_data_nombre__mainForm = "autofocus";
         
     /* El resto de las variables estan en `[/src/common/form.var.data.php]` */
         
@@ -97,9 +97,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             #$mail->addCC('gabrielvol@protonmail.com');
             #$mail->addBCC('ggvv@hotmail.com.ar');
 
-            #$mail->addAddress($form_recipient__formMainID);
-            #$mail->addCC($form_recipient_CC__formMainID);
-            #$mail->addBCC($form_recipient_BCC__formMainID); 
+            #$mail->addAddress($form_recipient__mainForm);
+            #$mail->addCC($form_recipient_CC__mainForm);
+            #$mail->addBCC($form_recipient_BCC__mainForm); 
 
             #$mail->addAddress($form_recipient__global);
             #$mail->addCC($form_recipient_CC__global);
@@ -120,8 +120,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
             };
 
-            #$addList($form_recipient_CC__formMainID, 'addCC');
-            #$addList($form_recipient_BCC__formMainID, 'addBCC');
+            #$addList($form_recipient_CC__mainForm, 'addCC');
+            #$addList($form_recipient_BCC__mainForm, 'addBCC');
 
             $addList($form_recipient_CC__global, 'addCC');
             $addList($form_recipient_BCC__global, 'addBCC');
@@ -129,11 +129,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
 /* // Cuerpo de mail y asunto ----------------------------------------------- */
             $mail->isHTML(true);
-            $mail->Subject = 'Contacto Web PHPMailer de ' . $data_nombre__formMainID . ' - ' . $form_id_spelled;
-            $mail->Body  = '<small style="color:#444">Este mensaje fue enviado desde el formulario que se encuentra en ' . $data_fullURL__formMainID . '</small><br><br>';
+            $mail->Subject = 'Contacto Web PHPMailer de ' . $data_nombre__mainForm . ' - ' . $form_id_spelled;
+            $mail->Body  = '<small style="color:#444">Este mensaje fue enviado desde el formulario que se encuentra en ' . $data_fullURL__mainForm . '</small><br><br>';
             $mail->Body .= '<small style="color:#444"><strong>Filtro:</strong> FiltroFormWeb</small><br><br>';
-            $mail->Body .= '<strong>Nombre:</strong> ' . $data_nombre__formMainID . '<br>';
-            $mail->Body .= '<br /><strong>Mensaje:</strong><br />' . $data_mensaje__formMainID;
+            $mail->Body .= '<strong>Nombre:</strong> ' . $data_nombre__mainForm . '<br>';
+            $mail->Body .= '<br /><strong>Mensaje:</strong><br />' . $data_mensaje__mainForm;
     
             /* El resto de las variables estan en `[/src/common/form.var.data.php]` */
                     
@@ -142,26 +142,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->Body .= '<br><br>______<br><small style="color:#666">Fin del mensaje</small>';
             
 /* // INICIA MENSAJE OK EN POPUP -------------------------------------------- */
-            $form_status_pop__formMainID = '<div class="pop_global pop_formStatus pop_formStatus_ok" role="alertdialog" aria-labelledby="formOK">'
+            $form_status_pop__mainForm = '<div class="pop_global pop_formStatus pop_formStatus_ok" role="alertdialog" aria-labelledby="formOK">'
                 . '<div role="document" tabindex="0">'
                 . '<button type="button" class="button_close button_close_pop button_close_pop_formStatus hover_grow_S_ani" name="pop_formStatus_close" aria-pressed="false">' . $form_status_pop_button_close_txt . '</button>'
-                . '<h2 id="formOK" class="' . $form_status_pop_h2_ok_classes__formMainID . '">' . $form_status_ok_globalA__formMainID . '</h2>'
-/* // REF [29]  . '<h2 id="formOK" class="' . $form_status_pop_h2_ok_classes__formMainID . '"><span>' . $form_status_ok_globalA__formMainID . '</span></h2>' */
-                . '<p>' . $form_status_ok_globalB__formMainID . '</p>'
-                . '<p>' . $form_status_ok_globalC__formMainID . '</p>'
+                . '<h2 id="formOK" class="' . $form_status_pop_h2_ok_classes__mainForm . '">' . $form_status_ok_globalA__mainForm . '</h2>'
+/* // REF [29]  . '<h2 id="formOK" class="' . $form_status_pop_h2_ok_classes__mainForm . '"><span>' . $form_status_ok_globalA__mainForm . '</span></h2>' */
+                . '<p>' . $form_status_ok_globalB__mainForm . '</p>'
+                . '<p>' . $form_status_ok_globalC__mainForm . '</p>'
                 . '<button type="button" class="button_submit_pop button_submit_pop_formStatus" name="pop_formStatus_close" aria-pressed="false">OK</button>'
                 . '</div></div><div class="modal_global modal_formStatus"></div>';
             
-            $form_validation_div_class__formMainID = 'displayNone';
+            $form_validation_div_class__mainForm = 'displayNone';
 
-          // $form_status_marquee__formMainID = '<p class="form_status_marquee form_status_ok">' . $form_status_ok_global__formMainID .'</p>';
+          // $form_status_marquee__mainForm = '<p class="form_status_marquee form_status_ok">' . $form_status_ok_global__mainForm .'</p>';
 /* // FIN mensaje ok en popup ----------------------------------------------- */
 
             $mail->send();  
             
 /* // Si el envio fue exitoso reseteamos lo que el usuario escribio --------- */
-            $_POST['data_nombre__formMainID'] = '';  
-            $_POST['data_mensaje__formMainID'] = '';      
+            $_POST['data_nombre__mainForm'] = '';  
+            $_POST['data_mensaje__mainForm'] = '';      
             /* El resto de las variables estan en `[/src/common/form.var.data.php]` */
 
             /* Redirect after successful send
@@ -180,20 +180,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         } catch (Exception $e) {
 /* // INICIA MENSAJE ERROR EN POPUP ----------------------------------------- */
-            $form_status_pop__formMainID = '<div class="pop_global pop_formStatus pop_formStatus_error" role="alertdialog" aria-labelledby="formError">'
+            $form_status_pop__mainForm = '<div class="pop_global pop_formStatus pop_formStatus_error" role="alertdialog" aria-labelledby="formError">'
                 . '<div role="document" tabindex="0">'
                 . '<button type="button" class="button_close button_close_pop button_close_pop_formStatus hover_grow_S_ani" name="pop_formStatus_close" aria-pressed="false">' . $form_status_pop_button_close_txt . '</button>'
-                . '<h2 id="formError" class="' . $form_status_pop_h2_error_classes__formMainID . '">' . $form_status_error_globalA__formMainID . '</h2>'
-                . '<p>' . $form_status_error_globalB__formMainID . '</p>'
-                . '<p>' . $form_status_error_globalC__formMainID . '</p>'
+                . '<h2 id="formError" class="' . $form_status_pop_h2_error_classes__mainForm . '">' . $form_status_error_globalA__mainForm . '</h2>'
+                . '<p>' . $form_status_error_globalB__mainForm . '</p>'
+                . '<p>' . $form_status_error_globalC__mainForm . '</p>'
                 . '<p class="formStatus_code">' . $mail->ErrorInfo . '</p>'
                 . '<p class="formStatus_code">' . $e->getMessage() . '</p>'
                 . '<button type="button" class="button_submit_pop button_submit_pop_formStatus" name="pop_formStatus_close" aria-pressed="false">OK</button>'
                 . '</div></div><div class="modal_global modal_formStatus"></div>';
             
-            $form_validation_div_class__formMainID = 'displayNone';
+            $form_validation_div_class__mainForm = 'displayNone';
 
-            // $form_status_marquee__formMainID = '<p class="form_status_marquee form_status_error">' . $form_status_error_global__formMainID . '</p>';
+            // $form_status_marquee__mainForm = '<p class="form_status_marquee form_status_error">' . $form_status_error_global__mainForm . '</p>';
 /* // FIN mensaje error en popup -------------------------------------------- */
             
             //echo 'El mensaje no se ha podido enviar, error: ', $mail->ErrorInfo;

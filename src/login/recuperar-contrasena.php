@@ -49,7 +49,7 @@
    b) En el archivo `[/src/var/page.login.var.inc.php]` para un grupo de paginas
    c) En la pagina donde va a ser usado
 */   
-$form_id = 'formRecuperarContrasena'; /* // REF [36*] Form variables */
+$form_id = 'recuperarContrasenaForm'; /* // REF [36*] Form variables */
 $form_id_spelled = $login_title_recuperarContrasena;
         
     if($page_redirect) {
