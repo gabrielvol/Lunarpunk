@@ -3,6 +3,17 @@
 # DirectoryIndex productos/lamparas/index.php
 
 # ----------------------------------------------------------------------
+# Header
+# ----------------------------------------------------------------------
+<IfModule mod_headers.c>
+#    Header set Access-Control-Allow-Origin "https://cdn.domain.dev"
+
+    SetEnvIf Origin "http(s)?://(www\.)?(https://cdn.domain.dev|https://sub.domain.com)$" AccessControlAllowOrigin=$0
+    Header add Access-Control-Allow-Origin %{AccessControlAllowOrigin}e env=AccessControlAllowOrigin
+    Header merge Vary Origin
+</IfModule>
+
+# ----------------------------------------------------------------------
 # UTF-8 encoding
 # ----------------------------------------------------------------------
 
@@ -12,39 +23,21 @@ AddDefaultCharset utf-8
 # Force UTF-8 for a number of file formats
 AddCharset utf-8 .css .js .xml .json .rss .atom
 
-
 # ----------------------------------------------------------------------
-# Start rewrite engine WWW / HTTPS
+# Force HTTPS + www
 # ----------------------------------------------------------------------
-RewriteEngine On
-
-# ensure www.
-RewriteCond %{HTTP_HOST} !^www\. [NC]
-RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-# ensure https
-RewriteCond %{HTTP:X-Forwarded-Proto} !https
-RewriteCond %{HTTPS} off
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-
-# ----------------------------------------------------------------------
-# Start rewrite engine
-# ----------------------------------------------------------------------
-
-# Turning on the rewrite engine is necessary for the following rules and features.
-# FollowSymLinks must be enabled for this to work.
-
 <IfModule mod_rewrite.c>
-  Options +FollowSymlinks
+  Options +FollowSymLinks
   RewriteEngine On
-</IfModule>
 
- <IfModule mod_rewrite.c>
-#   RewriteCond %{HTTPS} !=on
-   RewriteCond %{HTTP_HOST} !^www\..+$ [NC]
-   RewriteRule ^ http://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
- </IfModule>
+  # Redirect non-www to www over HTTPS
+  RewriteCond %{HTTP_HOST} !^www\. [NC]
+  RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+  # Redirect HTTP to HTTPS
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+</IfModule>
 
 
 # ----------------------------------------------------------------------

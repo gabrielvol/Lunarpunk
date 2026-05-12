@@ -662,7 +662,7 @@ $data_mensaje__mainForm = $_POST['data_mensaje__mainForm'];
     $form_input_autofocus_data_newsletter__mainForm = "autofocus";
 
 } elseif(!isset($data_mensaje__mainForm) || trim($data_mensaje__mainForm) == ''){
-    $form_validation_div_msg__mainForm = $errordata_mensaje__mainForm;
+    $form_validation_div_msg__mainForm = $form_validation_msg_data_mensaje__mainForm;
     $form_validation_div_class__mainForm = " form_validation_div_invalid";
     $form_validation_input_class_data_mensaje__mainForm = " form_validation_input_invalid";
     $form_input_autofocus_data_mensaje__mainForm = "autofocus";

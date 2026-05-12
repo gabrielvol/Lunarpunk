@@ -2,10 +2,6 @@
    Animation Variables | Custom [/etc/css/custom/var/animation_var.scss]
    ========================================================================== */
 
-@use "env_var" as *;
-
-@use "sass:color";
-@use "sass:map";
 /* // Descripcion ----------------------------------------------------------- */
 // Contiene las variables para la propiedad `animation-delay` de las
 // animaciones del sitio. El orden de delay es el orden en el que se animan
@@ -50,6 +46,11 @@
 // X, S, U, C, I        = extra, semi, ultra, condensed, italic
 
 
+
+@use "env_var" as *;
+
+@use "sass:color";
+@use "sass:map";
 
 /* // Animation order/timing ------------------------------------------------ */
 $animationA_ani_delay:      0.5s;
