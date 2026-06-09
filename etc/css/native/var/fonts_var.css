@@ -5,19 +5,25 @@
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
    Fonts
    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
-    --fontFamilies_sans_fallback: Arial, Roboto, '-apple-system', '.SFNSText-Regular', 'San Francisco', BlinkMacSystemFont, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", Helvetica, 'Helvetica Neue', 'Segoe UI', Verdana, Tahoma, 'Lucida Grande', 'Trebuchet MS', sans-serif;
+    --fontFamilies_sans_fallback: Arial, Roboto, '-apple-system', '.SFNSText-Regular', 'San Francisco', BlinkMacSystemFont, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", Helvetica, 'Helvetica Neue', 'Segoe UI', Verdana, Tahoma, 'Lucida Grande', 'Trebuchet MS', ui-sans-serif, system-ui, sans-serif;
     
     --fontFamilies_serif_fallback: Georgia, Palatino, serif;
     
+    --fontFamilies_monospaced_fallback: 'SFMono-Regular', 'Liberation Mono', 'Andale Mono', 'Lucida Console', 'Menlo', 'Monaco', 'Bitstream Vera Sans Mono', 'Consolas', 'Courier New', monospace;
+    
     --arial:    Arial;
     --roboto:   Roboto;
+    --timesNewRoman: "Times New Roman";
     
     --fontSansR:      "font_sans_regular", var(--fontFamilies_sans_fallback);    
     --fontSansB:      "font_sans_bold", var(--fontFamilies_sans_fallback);
     
-    --fontSerifR:     "font_serif_regular", var(--fontFamilies_serif_fallback);    
-    --fontSerifB:     "font_serif_bold", var(--fontFamilies_serif_fallback);
+    --fontSerifR:   var(--timesNewRoman), var(--fontFamilies_serif_fallback);
+    --fontSerifB:   var(--timesNewRoman), var(--fontFamilies_serif_fallback);
+    
+    --fontMonospacedR:     ui-monospace, var(--fontFamilies_monospaced_fallback);
     
     --ftMain_regular_global: var(--fontSansR);
     --ftMain_bold_global: var(--fontSansB);
+    --ftMain_monospaced_global: var(--fontMonospacedR);
 }
