@@ -1,27 +1,35 @@
 /* * NombreDeProyecto * ========================================================
-   Page section Activators | Custom [/etc/css/custom/act/page_section_act.scss]
+   Page Section Activators | Custom [/etc/css/custom/act/_page_section_act.scss]
    ========================================================================== */
 
 @use "sass:color";
 @use "sass:map";
 /* // Descripcion ----------------------------------------------------------- */
-// Archivo de variables activadoras para el selector `#main section`.
+// Archivo de variables activadoras para el selector `#main > section`.
 
 
 /* // Listado --------------------------------------------------------------- */
-// 01 _ Page section Full Height
+// 01 _ $page_section_fullHeight_act_*
 //
 //
-// 01 _ Page section Full Height
+// 01 _ $page_section_fullHeight_act_*
 // Activa los if que se encuentran en
-// `[/etc/css/custom/imp/page_section_fullHeight_imp.scss]`,
-// `[/etc/css/custom/imp/footer_fullHeight_imp.scss]` y
-// `[/etc/css/custom/imp/header_fullHeight_imp.scss]`
+// `[/etc/css/custom/imp/_page_section_fullHeight_imp.scss]`,
+// `[/etc/css/custom/imp/_footer_fullHeight_imp.scss]` y
+// `[/etc/css/custom/imp/_header_fullHeight_imp.scss]`
 //
-// y se importan en `[/etc/css/custom/global.scss]`,
-// `[/etc/css/custom/footer.scss]` y 
-// `[/etc/css/custom/header.scss]`
+// y se importan en `[/etc/css/custom/_global.scss]`,
+// `[/etc/css/custom/_footer.scss]` y
+// `[/etc/css/custom/_header.scss]`
 // respectivamente.
+// Los tres imports correspondientes deben estar habilitados.
+// Variantes responsive: `ALL`, `B500`, `A500`, `500O`, `B768`, `A768`,
+// `A768B1024`, `B1024`, `A1024`, `A1024B1200`, `B1200` y `A1200`.
+//
+// Genera para cada media query:
+// #main > section{
+//     height: calc(100vh - $footer_height_* - $header_height_*);
+// }
 
 
 
@@ -76,4 +84,4 @@ $page_section_fullHeight_act_B1024:  off;
 $page_section_fullHeight_act_A1024:  off;
 $page_section_fullHeight_act_A1024B1200:  off; 
 $page_section_fullHeight_act_B1200:   off; 
-$page_section_fullHeight_act_A1200:   off; 
+$page_section_fullHeight_act_A1200:   off;

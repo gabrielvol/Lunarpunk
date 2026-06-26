@@ -1,5 +1,5 @@
 /* * NombreDeProyecto * ========================================================
-   Forms activators | Custom [/etc/css/custom/act/form_act.scss]
+   Forms Activators | Custom [/etc/css/custom/act/_form_act.scss]
    ========================================================================== */
 
 /* // Descripcion ----------------------------------------------------------- */
@@ -17,49 +17,55 @@
 // 05 _ $form_input_border_act // REF [35]
 // 06 _ $form_submit_border_act // REF [21a]
 // 07 _ $form_span_invalid_tooltip_act // REF [16]
+// 08 _ $form_status_ok_tick // REF [29]
 //
 //
 // 01 _ $form_label_inside_act
 // Activa los if que se encuentran en
-// `[/etc/css/custom/forms.scss]` y
-// `[/etc/css/scss/settings_forms.scss]`
+// `[/etc/css/custom/_form.scss]` y
+// `[/etc/css/scss/settings_form.scss]`
 //
-// Genera estilos para campos dentro o fuera de la label, segun este activada.
+// Genera estilos alternativos segun los campos esten dentro (`on`) o fuera
+// (`off`) del elemento `label`.
 //
 //
 // 02 _ $form_label_coloured_act
 // Activa el if que se encuentra en `[/etc/css/scss/mixins_colours.scss]`
 //
 // Genera selectores de color para `label` y sus pseudo-clases `:focus` y
-// `:hover`.
+// `:hover`. Los tres estados usan el mismo color, sin aclararlo ni oscurecerlo.
 //
-// Ej. con color verdeAgua:
-// label.verdeAgua,
-// label.verdeAgua:focus,
-// label.verdeAgua:hover { color: #hex; }
+// Ej. con color `greenSystemM`:
+// label.greenSystemM,
+// label.greenSystemM:focus,
+// label.greenSystemM:hover { color: #hex; }
 //
 //
 // 03 _ $form_label_floating_act
 // REF [39]
-// Activa el if que se encuentra en `[/etc/css/custom/form.scss]`
+// Activa el if que se encuentra en `[/etc/css/custom/_form.scss]`
+// Solo tiene efecto cuando `$form_label_inside_act` esta activada.
 //
-// Genera selectores de color para `.form_label_name`.
+// Genera estilos de posicion y transicion para `.form_label_name`, que cambia
+// cuando `label` tiene las clases `.input_has_focus_js`,
+// `.input_has_value_js` o la pseudo-clase `:hover`.
 //
 // Ej.:   
-// .form_label_name{
+// .form_label_name.form_label_name{
 //     @include transition(0.5s);
 //     position: absolute;
 //     top: 0;
 //     left: 0;
 // }
 // label{
-//     overflow: hidden;
-// 
-//     &:focus,
-//     &:focus-visible,
+//     &.input_has_focus_js,
+//     &.input_has_value_js,
 //     &:hover{            
 //         .form_label_name{
-//             top: -60px;
+//             top: -18px;
+//             font-size: 0.6rem!important;
+//             height: 14px;
+//             line-height: 14px;
 //         }
 //     }
 // }
@@ -69,24 +75,26 @@
 // Activa el if que se encuentra en `[/etc/css/scss/mixins_colours.scss]`.
 //
 // Genera selectores para las pseudo-clases `:focus` y `:hover` de los
-// elementos `ìnput[type="submit"]` e `input[type="file"]` con clase del tipo
-// `.bgColour`.
+// elementos `input[type="submit"]` e `input[type="file"]` con clase del tipo
+// declarado como clave en `$colours_backgrounds_hover_map`.
 //
-// Ej. con color verdeAgua:
-// input[type="submit"].bgVerdeAgua:hover,
-// input[type="submit"].bgVerdeAgua:focus { background-color: #hex; }
-// input[type="file"].bgVerdeAgua:hover,
-// input[type="file"].bgVerdeAgua:focus { background-color: #hex; }
+// Ej. con la clave `mainBgColour`:
+// input[type="submit"].mainBgColour:hover,
+// input[type="submit"].mainBgColour:focus { background-color: #hex; }
+// input[type="file"].mainBgColour:hover,
+// input[type="file"].mainBgColour:focus { background-color: #hex; }
 //
 //
 // 05 _ $form_input_border_act
 // REF [35]
-// Activa el if que se encuentra en `[/etc/css/custom/form.scss]`.
+// Activa el if que se encuentra en `[/etc/css/custom/_form.scss]`.
 //
 // Genera selectores de color de borde para `input`, `select` y 
 // `textarea`, y sus pseudo-clases `:focus` y `:hover`.
 // Usa las variables `$form_input_bdColour`, y 
 // `$form_input_bdColour_hover` para las pseudo-clases `:focus` y `:hover`.
+// Cuando esta desactivada, genera `border: none` para estos elementos y sus
+// pseudo-clases.
 //
 // Ej.
 // form input,
@@ -103,12 +111,14 @@
 //
 // 06 _ $form_submit_border_act
 // REF [21a]
-// Activa el if que se encuentra en `[/etc/css/custom/form.scss]`.
+// Activa el if que se encuentra en `[/etc/css/custom/_form.scss]`.
 //
 // Genera selectores de color de borde para `input[type="reset"]`, `input[type="submit"]`,
-// `input[type="button"]` y `button` y sus pseudo-clases `:focus` y `:hover`.
+// `input[type="button"]` y `button`, y sus pseudo-clases `:focus`,
+// `:focus-visible` y `:hover`.
 // Usa las variables `$button_form_submit_bdColour`, y 
-// `$button_form_submit_bdColour_hover` para las pseudo-clases `:focus` y `:hover`.
+// `$button_form_submit_bdColour_hover` para las pseudo-clases.
+// Cuando esta desactivada, genera `border: none` para estos elementos.
 //
 // Ej.
 // form input[type="reset"],
@@ -117,21 +127,36 @@
 // form button { border: 1px solid #hex; }
 //
 // form input[type="reset"]:focus,
+// form input[type="reset"]:focus-visible,
 // form input[type="reset"]:hover,
 // form input[type="submit"]:focus,
+// form input[type="submit"]:focus-visible,
 // form input[type="submit"]:hover,
 // form input[type="button"]:focus,
+// form input[type="button"]:focus-visible,
 // form input[type="button"]:hover,
 // form button:focus,
+// form button:focus-visible,
 // form button:hover { border-color: #hex; }
 //
 //
 // 07 _ $form_span_invalid_tooltip_act
 // REF [16]
-// Activa el if que se encuentra en `[/etc/css/custom/form.scss]`.
+// Activa el if que se encuentra en `[/etc/css/custom/_form.scss]`.
 //
-// Genera un elemento flotante sobre el input para indicar un error de
-// validación, usando pseudo-elementos `::before` y `::after`.
+// Convierte un elemento `.form_validation_span` existente en un tooltip
+// flotante para indicar un error de validacion. Los pseudo-elementos
+// `::before` y `::after` generan la flecha del tooltip.
+// El elemento se muestra cuando tambien tiene la clase
+// `.form_validation_span_active`.
+//
+//
+// 08 _ $form_status_ok_tick
+// REF [29]
+// Activa el if que se encuentra en `[/etc/css/custom/_popup.scss]`.
+//
+// Genera un pseudo-elemento `::after` con un icono de confirmacion para
+// `h2 span` dentro de `.pop_formStatus_ok`.
 
 
 /* // Referencias globales de nombres de variables y mixins ----------------- */

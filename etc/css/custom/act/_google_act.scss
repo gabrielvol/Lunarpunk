@@ -1,5 +1,5 @@
 /* * NombreDeProyecto * ========================================================
-   Google Activators | Custom [/etc/css/custom/act/google_act.scss]
+   Google Activators | Custom [/etc/css/custom/act/_google_act.scss]
    ========================================================================== */
 
 /* // Descripcion ----------------------------------------------------------- */
@@ -17,17 +17,17 @@
 // Si se activa `$google_captcha_act` tambien hay que activar `$has_captcha` en 
 // `[/src/var/form.var.inc.php]`
 //
-// Activa el if que se encuentra en `[/etc/css/custom/buttons.scss]`.
+// Activa el if que se encuentra en `[/etc/css/custom/_buttons.scss]`.
 //
-// Genera la declaracion `bottom: 80px;` cuando el sitio web usa captcha para
-// no se superponga con el catpcha badge
+// Genera `bottom: 80px;` para que el boton de WhatsApp no se superponga con
+// el badge de captcha. Cuando esta desactivada, el boton usa `bottom: 40px;`.
 //
 // Imprime:
-// .button_whatsapp_anchor{
+// .button_whatsApp_anchor{
 //   bottom: 80px;
 // }
 //
-// Activa el if que se encuentra en `[/etc/css/custom/global.scss]`.
+// Activa el if que se encuentra en `[/etc/css/custom/_global.scss]`.
 //
 // Imprime la regla:
 // .grecaptcha-badge{
@@ -78,4 +78,4 @@
 
 // Si se activa `$google_captcha_act` tambien hay que activar `$has_captcha` en 
 // `[/src/var/form.var.inc.php]` // REF [50] Google captcha
-$google_captcha_act:             off;   
+$google_captcha_act:             off;

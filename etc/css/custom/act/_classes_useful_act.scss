@@ -1,5 +1,5 @@
 /* * NombreDeProyecto * ========================================================
-   Useful Classes Activators | Custom [/etc/css/custom/act/classes_useful_act.scss]
+   Useful Classes Activators | Custom [/etc/css/custom/act/_classes_useful_act.scss]
    ========================================================================== */
 
 /* // Descripcion ----------------------------------------------------------- */
@@ -24,46 +24,97 @@
 //
 // 01 _ $classes_container_act
 // Activa los if que se encuentran en  `[/etc/css/scss/settings_container.scss]`
-// Genera los margenes negativos para cada media query para la clase
-// `.container_centered_absolute` que se usa junto con la clase `.container`
+// Genera anchos responsive para `.container`, clases `.container*` y variantes
+// `.container_centered_absolute_*` con posicion y margenes negativos para cada
+// media query.
 //
 // Ej. con $classes_container_act_A500
-// @media (min-width: 500px) {
+// @media (min-width: 501px) {
 //     .container.container_centered_absolute_A500{
 //         position: absolute;
 //         left: 50%;
+//         margin-left: calc(-1 * calc(90% / 2));
+//     }
+// }
+// @media (min-width: 601px) {
+//     .container.container_centered_absolute_A500{
 //         margin-left: calc(-1 * calc(85% / 2));
 //     }
 // }
-// @media (min-width: 767px) {
+// @media (min-width: 651px) {
 //     .container.container_centered_absolute_A500{
+//         margin-left: calc(-1 * calc(85% / 2));
+//     }
+// }
+// @media (min-width: 768px) {
+//     .container.container_centered_absolute_A500{
+//         width: 720px;
 //         margin-left: calc(-1 * calc(720px / 2));
+//     }
+// }
+// @media (min-width: 851px) {
+//     .container.container_centered_absolute_A500{
+//         width: 750px;
+//         margin-left: calc(-1 * calc(750px / 2));
+//     }
+// }
+// @media (min-width: 901px) {
+//     .container.container_centered_absolute_A500{
+//         width: 800px;
+//         margin-left: calc(-1 * calc(800px / 2));
 //     }
 // }
 // @media (min-width: 1024px) {
 //     .container.container_centered_absolute_A500{
+//         width: 900px;
 //         margin-left: calc(-1 * calc(900px / 2));
 //     }
 // }
-// @media (min-width: 1200px) {
+// @media (min-width: 1101px) {
 //     .container.container_centered_absolute_A500{
-//         margin-left: calc(-1 * calc(900px / 2));
+//         width: 1050px;
+//         margin-left: calc(-1 * calc(1050px / 2));
 //     }
 // }
-// @media (min-width: 1600px) {
+// @media (min-width: 1201px) {
 //     .container.container_centered_absolute_A500{
-//         margin-left: calc(-1 * calc(900px / 2));
+//         width: 1150px;
+//         margin-left: calc(-1 * calc(1150px / 2));
+//     }
+// }
+// @media (min-width: 1301px) {
+//     .container.container_centered_absolute_A500{
+//         width: 1250px;
+//         margin-left: calc(-1 * calc(1250px / 2));
+//     }
+// }
+// @media (min-width: 1401px) {
+//     .container.container_centered_absolute_A500{
+//         width: 1350px;
+//         margin-left: calc(-1 * calc(1350px / 2));
+//     }
+// }
+// @media (min-width: 1501px) {
+//     .container.container_centered_absolute_A500{
+//         width: 1350px;
+//         margin-left: calc(-1 * calc(1350px / 2));
+//     }
+// }
+// @media (min-width: 1601px) {
+//     .container.container_centered_absolute_A500{
+//         width: 1350px;
+//         margin-left: calc(-1 * calc(1350px / 2));
 //     }
 // }
 //
 // REF [38*] ContainerMAX width
-// Al modificarse el valor de la variable `$containerMAX_value` en el archivo
-// `[/src/var/global.var.inc.php]` hay que activar la variable correspondiente
-// en este archivo
-
-// Este valor luego debe ser modificado en el archivo
-// `[/etc/css/custom/var/container_sizes_var.scss]`
-// declarado en la variable `$containerMAX_value`
+// Los tres valores siguientes deben corresponder:
+// - En `[/src/var/global.var.inc.php]`, la clase PHP, por ejemplo
+//   `$containerMAX_value = ' containerA1400';`.
+// - En `[/etc/css/custom/var/_container_sizes_var.scss]`, el ancho SCSS, por
+//   ejemplo `$containerMAX_value: 1400px;`.
+// - En este archivo, el activador correspondiente, por ejemplo
+//   `$classes_container_act_A1400: on;`.
 //
 //
 // 02 _ $helpers_spacing_act
@@ -74,15 +125,29 @@
 // `[/etc/css/scss/classes_useful_all.scss]` y
 // `[/etc/css/scss/classes_useful_responsive.scss]`
 //
-// Genera clases para spacing helpers, positiones, display, mascaras, flexbox y
-// listas.
+// `$helpers_spacing_act` genera helpers de padding y margin, incluyendo
+// margenes horizontales automaticos.
+//
+// `$classes_position_display_mask_cursor_act` genera clases de posicion,
+// display, box-sizing, centrado vertical y contenido oculto accesible. Las
+// variantes `ALL` tambien generan mascaras, coberturas y cursores.
+//
+// `$classes_flexbox_act` genera clases para display flex, direccion, wrap,
+// justify-content, align-content y align-items.
+//
+// `$classes_lists_floats_act` genera clases para reset y disposicion de listas,
+// floats y centrado horizontal.
 //
 //
 // 06 _ $classes_text_act
 // 07 _ $classes_bg_bd_NO_act
 // Activan los if que se encuentran en `[/etc/css/scss/classes_useful_responsive.scss]`
 //
-// Activa clases responsive para texto y valores nulos para bordes y fondos.
+// `$classes_text_act` genera clases responsive para indentacion, alineacion y
+// transformacion de mayusculas o minusculas.
+//
+// `$classes_bg_bd_NO_act` genera clases responsive para quitar bordes, fondos
+// e imagenes de fondo, y para aplicar fondos transparentes.
 
 
 
@@ -217,9 +282,10 @@ $classes_bg_bd_NO_act_A768B1024:                       off;
 
 /* // After Tablet AT ------------------------------------------------------- *
 // REF [05]
-Si se activa `$classes_container_act_A768` `$nav_double_A768_act` hay que activar
-`$nav_double_A768_act` en `[/etc/css/custom/act/nav_main_act.scss]` y
-`$nav_double_A768_act` en `[/src/var/act/nav.act.inc.php]`
+Si se activa `$nav_double_A768_act`, tambien hay que activar
+`$classes_container_act_A768` en este archivo y `$nav_double_A768_act` en
+`[/src/var/act/nav.act.inc.php]`.
+El activador SCSS se encuentra en `[/etc/css/custom/act/_nav_main_act.scss]`.
 */
 $classes_container_act_A768:                      off;
 $helpers_spacing_act_A768:                        off;
@@ -251,13 +317,12 @@ $classes_bg_bd_NO_act_A1024B1200:                      off;
 
 
 /* // Tablet Landscape Only TTLO -------------------------------------------- */
-$classes_container_act_A1024B1200:                    off;
-$helpers_spacing_act_A1024B1200:                      off;
-$classes_position_display_mask_cursor_act_A1024B1200: off;
-$classes_flexbox_act_A1024B1200:                      off;
-$classes_lists_floats_act_A1024B1200:                 off;
-$classes_text_act_A1024B1200:                         off;
-$classes_bg_bd_NO_act_A1024B1200:                     off;
+$helpers_spacing_act_A768B1200:                      off;
+$classes_position_display_mask_cursor_act_A768B1200: off;
+$classes_flexbox_act_A768B1200:                      off;
+$classes_lists_floats_act_A768B1200:                 off;
+$classes_text_act_A768B1200:                         off;
+$classes_bg_bd_NO_act_A768B1200:                     off;
 
 
 /* // Before Desktop BD ----------------------------------------------------- */

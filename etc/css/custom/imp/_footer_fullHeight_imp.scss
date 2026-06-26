@@ -151,7 +151,31 @@
             &.footer_page_index{
                 height: $footer_height_A1024;
             }
-        }  
+        }
+    }
+
+    @include MQ1024_1200{
+        @if $page_index_fullHeight_act_A1024B1200 == "on" or $page_section_fullHeight_act_A1024B1200 == "on"{
+            height: $footer_height_A1024B1200;
+        }
+
+        @if $page_index_only_fullHeight_act_A1024B1200 == "on"{
+            &.footer_page_index{
+                height: $footer_height_A1024B1200;
+            }
+        }
+    }
+
+    @include beforeMQ1200{
+        @if $page_index_fullHeight_act_B1200 == "on" or $page_section_fullHeight_act_B1200 == "on"{
+            height: $footer_height_B1200;
+        }
+
+        @if $page_index_only_fullHeight_act_B1200 == "on"{
+            &.footer_page_index{
+                height: $footer_height_B1200;
+            }
+        }
     }
     
     @include afterMQ1200{

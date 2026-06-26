@@ -1,5 +1,5 @@
 /* * NombreDeProyecto * ========================================================
-   Fonts Activators | Custom [/etc/css/custom/act/fonts_act.scss]
+   Fonts Activators | Custom [/etc/css/custom/act/_fonts_act.scss]
    ========================================================================== */
 
 /* // Descripcion ----------------------------------------------------------- */
@@ -13,15 +13,16 @@
 
 /* // Listado --------------------------------------------------------------- */
 // 01 _ $google_fonts_act
-// 02 _ $font_zh_act
+// 02 _ $fonts_zh_act
 //
 //
 // 01 _ $google_fonts_act
 // REF [01] Google Fonts
 //
 // Activa los if que se encuentran en
-// `[/etc/css/custom/_forms.scss]`,
-// `[/etc/css/scss/settings_forms.scss]`,
+// `[/etc/css/custom/_form.scss]`,
+// `[/etc/css/custom/_classes_text.scss]`,
+// `[/etc/css/scss/settings_form.scss]`,
 // `[/etc/css/scss/settings_nav.scss]` y
 // `[/etc/css/scss/settings_nav_drawer.scss]`.
 //
@@ -29,7 +30,7 @@
 // cargada desde Google Fonts declarada con una variable `$ftFamily` por CSS.
 //
 //
-// 02 _ $font_zh_act
+// 02 _ $fonts_zh_act
 // REF [14a] Idioma Chino ZH, MingLiu font
 //
 // Sin usar por el momento

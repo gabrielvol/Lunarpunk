@@ -1,9 +1,7 @@
 /* * NombreDeProyecto * ========================================================
-   Logo Activators | Custom [/etc/css/custom/act/logo_act.scss]
+   Logo Activators | Custom [/etc/css/custom/act/_logo_act.scss]
    ========================================================================== */
 
-@use "sass:color";
-@use "sass:map";
 /* // Descripcion ----------------------------------------------------------- */
 // Activadores para logo.
 //
@@ -16,10 +14,12 @@
 //
 // 01 _ $logo_bgImage_before_act
 // REF [02] `[/src/var/act/header.act.inc.php]`
-// Activa los if que se encuentran en `[/etc/css/custom/header.scss]`
+// Activa los if que se encuentran en `[/etc/css/custom/_header.scss]`
+// Tambien requiere `$logo_bgImage_before_act = 1` en
+// `[/src/var/act/header.act.inc.php]` para que PHP genere `div.logo_before`.
 //
 // Genera clases para el elemento `div.logo_before` detras del logo que tiene
-// una imagen de fondo `[/src/img/logo_bg_before.png]`.
+// una imagen de fondo en `/img/logo_bg_before.png` del entorno activo.
 // En `[/etc/img/logo_bg_before.psd]` hay un template para crearla.
 //
 // Tambien genera clases para los tamanos de `.logo_header`, `a` e `img` dentro.
@@ -64,5 +64,8 @@
 // X, S, U, C, I        = extra, semi, ultra, condensed, italic
 
 
+
+@use "sass:color";
+@use "sass:map";
 
 $logo_bgImage_before_act:     off; // REF [02] `[/src/var/act/header.act.inc.php]`

@@ -1,5 +1,5 @@
 /* * NombreDeProyecto * ========================================================
-   Header Activators | Custom [/etc/css/custom/act/header_act.scss]
+   Header Activators | Custom [/etc/css/custom/act/_header_act.scss]
    ========================================================================== */
 
 /* // Descripcion ----------------------------------------------------------- */
@@ -8,13 +8,13 @@
 
 /* // Listado --------------------------------------------------------------- */
 // 01 _ $header_logoNav_floated_act
-// 02 _ Logo Nav Floated Flexbox
-// 03 _ Header Fixed
+// 02 _ $header_logoNav_floated_flexbox_act_*
+// 03 _ $header_fixed_act_*
 //
 //
 // 01 _ $header_logoNav_floated_act
 // Activa los if que se encuentran en `[/etc/css/custom/_header.scss]` y
-// `[/etc/css/custom/_nav_AT.scss]`.
+// `[/etc/css/custom/_nav_main_AT.scss]`.
 //
 // Imprime:
 // #header .logo_header{
@@ -27,14 +27,15 @@
 //     float: left;
 //     width: calc(100% - $logo_width);
 // }
-// .nav_main .nav_main_ul > li{
-//     float: left;
-// }
 //
 //
-// 02 _ $header_logoNav_floated_flexbox_act
+// 02 _ $header_logoNav_floated_flexbox_act_*
 // Activa los if que se encuentran en
-// `[/etc/css/custom/_header.scss]` y `[/etc/css/custom/_nav_AT.scss]`.
+// `[/etc/css/custom/_header.scss]` y `[/etc/css/custom/_nav_main_AT.scss]`.
+// Sus variantes establecen el breakpoint inicial: `_A768`, `_A1024`, `_A1100`
+// o `_A1200`.
+// En el breakpoint activado genera flexbox para `#header .container` y ajusta
+// el ancho de `.nav_main` segun el ancho responsive del logo.
 //
 // Imprime:
 // #header .container{
@@ -51,21 +52,21 @@
 // .nav_main{
 //     width: calc(100% - $logo_width);
 // }
-// .nav_main .nav_main_ul.navAT{
-//     display: flex;
-//     flex-direction: row;
-//     flex-wrap: wrap;
-//     justify-content: flex-end;
-//     align-content: flex-start;
-//     align-items: flex-start; 
-// }
+// La variante `_A768` tambien aplica `box-sizing` al logo y asegura que
+// `.nav_main_ul.navAT` use flexbox.
 //
 //
-// 03 _ $header_fixed_act_mq
+// 03 _ $header_fixed_act_*
 // REF [08]
 // Activa los if que se encuentran en
-// `[/etc/css/custom/imp/page_headerFixed_imp.scss]` y
-// `[/etc/css/custom/imp/header_headerFixed_imp.scss]`.
+// `[/etc/css/custom/imp/_page_headerFixed_imp.scss]` y
+// `[/etc/css/custom/imp/_header_headerFixed_imp.scss]`.
+// Los imports de estos archivos deben estar habilitados en `_global.scss` y
+// `_header.scss`.
+//
+// `_ALL` aplica el header fijo en todos los tamanos. Las variantes `B500`,
+// `A500`, `500O`, `B768`, `A768`, `nav_BT`, `nav_AT` y `A1024` limitan los
+// estilos a sus media queries correspondientes.
 //
 // Imprime:
 // #header{
@@ -145,7 +146,7 @@ $header_fixed_act_500O:     off;
 $header_fixed_act_B768:       off;
 $header_fixed_act_A768:       off;
 
-// REF [03] `[/etc/css/custom/var/mediaQueries_var.scss]`
+// REF [03] `[/etc/css/custom/var/_mediaQueries_var.scss]`
 $header_fixed_act_nav_BT:   off;
 $header_fixed_act_nav_AT:   off;
 

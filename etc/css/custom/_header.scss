@@ -317,6 +317,17 @@
     }
     
     @include afterMQ1100{        
+        @if $header_logoNav_floated_flexbox_act_A1100 == "on"{
+            .container{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-content: flex-start;
+                align-items: flex-start;
+            }
+        }
+
         .logo_header{
             @if $logo_bgImage_before_act == "on"{
                 &,

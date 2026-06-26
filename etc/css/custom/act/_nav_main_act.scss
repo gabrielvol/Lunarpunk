@@ -1,5 +1,5 @@
 /* * NombreDeProyecto * ========================================================
-   Nav Activators | Custom [/etc/css/custom/act/nav_main_act.scss]
+   Nav Main Activators | Custom [/etc/css/custom/act/_nav_main_act.scss]
    ========================================================================== */ 
 
 /* // Descripcion ----------------------------------------------------------- */
@@ -19,42 +19,66 @@
 /* // Listado --------------------------------------------------------------- */
 // 01 _ $hamburger_only_act
 // 02 _ $nav_text_white_act / $nav_text_black_act
-// 03 _ $nav_horizontalCenter_act
+// 03 _ $nav_horizontalCenter_AT_act / $nav_horizontalCenter_TO_act /
+//      $nav_horizontalCenter_A1024_act
 // 04 _ $nav_topper_act
 // 05 _ $nav_fixed_A768_act
-// 06 _ $nav_item_current_bdB_act
+// 06 _ $nav_double_A768_act / $nav_drawer_act / $nav_accordion_act /
+//      $nav_list_act
+// 07 _ $nav_hasSub_act / $nav_hasSub_level1_act /
+//      $nav_hasSub_level2_act / $nav_hasSub_level3_act /
+//      $nav_sub_centered_AT
+// 08 _ $nav_item_current_bdB_act
 //
 //
 // 01 _ $hamburger_only_act
 // REF [11]
 // Activa los if que se encuentran en
 // `[/etc/css/scss/settings_nav.scss]`,
-// `[/etc/css/custom/nav_accordion.scss]` y
-// `[/etc/css/custom/nav_drawer.scss]`.
+// `[/etc/css/custom/_nav_main_accordion.scss]` y
+// `[/etc/css/custom/_nav_main_drawer.scss]`.
+//
+// En mobile cambia `.nav_main` de `position: fixed` a `position: absolute` y
+// ajusta la posicion del boton hamburger para los modos Drawer y Accordion.
+// Tambien hay que asignar `$button_hamb_close_size: $button_hambOnly_size` en
+// `[/etc/css/custom/var/_button_nav_hamburger_var.scss]`.
 //
 //
 // 02 _ $nav_text_white_act / $nav_text_black_act
 // REF [12]
-// Activa los if que se encuentran en `[/etc/css/custom/nav_main_AT.scss]`.
+// Activa los if que se encuentran en `[/etc/css/custom/_nav_main_AT.scss]`.
+//
+// Desde 1024px, `$nav_text_white_act` agrega sombra oscura al texto durante
+// `:focus`, `:focus-visible` y `:hover`. `$nav_text_black_act` cambia el texto
+// a `$grey3XD` en esos estados.
 //
 //
-// 03 _ $nav_horizontalCenter_act
-// Activa el if que se encuentran en `[/etc/css/custom/nav_main_AT.scss]`.
+// 03 _ $nav_horizontalCenter_AT_act / $nav_horizontalCenter_TO_act /
+//      $nav_horizontalCenter_A1024_act
+// Activa los if que se encuentran en `[/etc/css/custom/_nav_main_AT.scss]`.
+//
+// `$nav_horizontalCenter_AT_act` centra la navegacion desde el breakpoint
+// `navAT`. `$nav_horizontalCenter_TO_act` la centra solo entre 768px y 1023px
+// cuando `_AT` esta desactivada. `$nav_horizontalCenter_A1024_act` la centra
+// desde 1024px.
 //
 //
 // 04 _ $nav_topper_act
 // REF [44]
 // Activa los if que se encuentran en
-// `[/etc/css/custom/global.scss]`,
-// `[/etc/css/custom/header.scss]`,
-// `[/etc/css/custom/nav_main_AT.scss]`
-// y [/etc/css/scss/settings_nav.scss].
+// `[/etc/css/custom/_global.scss]`,
+// `[/etc/css/custom/_header.scss]`,
+// `[/etc/css/custom/_nav_main_AT.scss]` y
+// `[/etc/css/scss/settings_nav.scss]`.
+//
+// Genera la variante `.nav_topper` fija, sus colores, alturas y estilos para
+// items actuales y submenus.
 //
 //
 // 05 _ $nav_fixed_A768_act
 // REF [15]
-// Activa los if que se encuentran en `[/etc/css/custom/nav_main_AT.scss]` y
-// `[/etc/css/custom/header.scss]`
+// Activa los if que se encuentran en `[/etc/css/custom/_nav_main_AT.scss]` y
+// `[/etc/css/custom/_header.scss]`.
 // Genera declaraciones para el selector `.nav_main` AT
 //
 // #header{
@@ -70,9 +94,49 @@
 // }
 //
 //
-// 06 _ $nav_item_current_bdB_act
+// 06 _ $nav_double_A768_act / $nav_drawer_act / $nav_accordion_act /
+//      $nav_list_act
+// `$nav_double_A768_act` activa estilos para dos listas de navegacion dentro
+// de `.navs_container_AT`. Tambien requiere:
+// - `$classes_container_act_A768: on` en
+//   `[/etc/css/custom/act/_classes_useful_act.scss]`.
+// - `$nav_double_A768_act = 1` en `[/src/var/act/nav.act.inc.php]`.
+//
+// `$nav_drawer_act`, `$nav_accordion_act` y `$nav_list_act` activan sus
+// respectivos modos:
+// - `[/etc/css/custom/_nav_main_drawer.scss]` y
+//   `[/etc/css/scss/settings_nav_drawer.scss]`, con ajustes adicionales en
+//   `_header.scss`, `_nav_lang.scss` y `_social.scss`.
+// - `[/etc/css/custom/_nav_main_accordion.scss]` y
+//   `[/etc/css/scss/settings_nav_accordion.scss]`, con ajustes adicionales en
+//   `_header.scss` y `_global.scss`.
+// - `[/etc/css/custom/_nav_main_list.scss]`.
+//
+// Drawer y Accordion tambien deben coincidir con las variables PHP del mismo
+// nombre en `[/src/var/act/nav.act.inc.php]`.
+//
+//
+// 07 _ $nav_hasSub_act / $nav_hasSub_level1_act /
+//      $nav_hasSub_level2_act / $nav_hasSub_level3_act /
+//      $nav_sub_centered_AT
+// REF [55]
+// `$nav_hasSub_act` genera los estilos base de `.nav_subNav` en
+// `settings_nav.scss`, `settings_nav_drawer.scss`, `_nav_main_AT.scss` y
+// `_footer.scss`.
+//
+// `$nav_hasSub_level1_act`, `$nav_hasSub_level2_act` y
+// `$nav_hasSub_level3_act` generan estilos especificos para cada profundidad
+// de submenu en Drawer. Los niveles 1 y 2 tambien tienen ajustes en
+// `_nav_main_AT.scss`.
+//
+// `$nav_sub_centered_AT` centra horizontalmente los submenus desde `navAT`.
+//
+//
+// 08 _ $nav_item_current_bdB_act
 // REF [17]
-// Activa el if que se encuentran en `[/etc/css/custom/nav_main_AT.scss]`.
+// Activa el if que se encuentra en `[/etc/css/custom/_nav_main_AT.scss]`.
+//
+// Genera un borde inferior para el item actual desde `navAT`.
 
 
 
@@ -132,7 +196,7 @@ $nav_topper_act:                    off; // REF [44]
 $nav_fixed_A768_act:                  off; // REF [15]
 
 // Si se activa `$nav_double_A768_act` hay que activar
-// `$classes_container_act_A768` en `[/etc/css/custom/act/classes_useful_act.scss]`
+// `$classes_container_act_A768` en `[/etc/css/custom/act/_classes_useful_act.scss]`
 // y `$nav_double_A768_act` en `[/src/var/act/nav.act.inc.php]`
 $nav_double_A768_act:                 off; // REF [05] Ver `[/src/var/act/nav.act.inc.php]`
 $nav_drawer_act:                    on; // Ver `[/src/var/act/nav.act.inc.php]`

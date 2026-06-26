@@ -62,17 +62,35 @@
         @if $page_index_fullHeight_act_B500 == "on" or $page_section_fullHeight_act_B500 == "on"{
             height: $header_height_B500;
         }
+
+        @if $page_index_only_fullHeight_act_B500 == "on"{
+            &.header_page_index{
+                height: $header_height_B500;
+            }
+        }
     }
     
     @include afterMQ500{
         @if $page_index_fullHeight_act_A500 == "on" or $page_section_fullHeight_act_A500 == "on"{
             height: $header_height_A500;
         }
+
+        @if $page_index_only_fullHeight_act_A500 == "on"{
+            &.header_page_index{
+                height: $header_height_A500;
+            }
+        }
     }
     
     @include MQ500_768{
         @if $page_index_fullHeight_act_500O == "on" or $page_section_fullHeight_act_500O == "on"{
             height: $header_height_500O;
+        }
+
+        @if $page_index_only_fullHeight_act_500O == "on"{
+            &.header_page_index{
+                height: $header_height_500O;
+            }
         }
     }
 
@@ -81,6 +99,12 @@
         @if $page_index_fullHeight_act_B768 == "on" or $page_section_fullHeight_act_B768 == "on"{
             height: $header_height_B768;
         }
+
+        @if $page_index_only_fullHeight_act_B768 == "on"{
+            &.header_page_index{
+                height: $header_height_B768;
+            }
+        }
     }
     
     //@include navAT{ // REF [03] `[/etc/css/custom/var/mediaQueries_var.scss]`
@@ -88,11 +112,23 @@
         @if $page_index_fullHeight_act_A768 == "on" or $page_section_fullHeight_act_A768 == "on"{
             height: $header_height_A768;
         }
+
+        @if $page_index_only_fullHeight_act_A768 == "on"{
+            &.header_page_index{
+                height: $header_height_A768;
+            }
+        }
     }
     
     @include MQ768_1024{
         @if $page_index_fullHeight_act_A768B1024 == "on" or $page_section_fullHeight_act_A768B1024 == "on"{
             height: $header_height_A768B1024;
+        }
+
+        @if $page_index_only_fullHeight_act_A768B1024 == "on"{
+            &.header_page_index{
+                height: $header_height_A768B1024;
+            }
         }
     }
     
@@ -100,17 +136,59 @@
         @if $page_index_fullHeight_act_B1024 == "on" or $page_section_fullHeight_act_B1024 == "on"{
             height: $header_height_B1024;
         }
+
+        @if $page_index_only_fullHeight_act_B1024 == "on"{
+            &.header_page_index{
+                height: $header_height_B1024;
+            }
+        }
     }
     
     @include afterMQ1024{
         @if $page_index_fullHeight_act_A1024 == "on" or $page_section_fullHeight_act_A1024 == "on"{
             height: $header_height_A1024;
         }
+
+        @if $page_index_only_fullHeight_act_A1024 == "on"{
+            &.header_page_index{
+                height: $header_height_A1024;
+            }
+        }
+    }
+
+    @include MQ1024_1200{
+        @if $page_index_fullHeight_act_A1024B1200 == "on" or $page_section_fullHeight_act_A1024B1200 == "on"{
+            height: $header_height_A1024B1200;
+        }
+
+        @if $page_index_only_fullHeight_act_A1024B1200 == "on"{
+            &.header_page_index{
+                height: $header_height_A1024B1200;
+            }
+        }
+    }
+
+    @include beforeMQ1200{
+        @if $page_index_fullHeight_act_B1200 == "on" or $page_section_fullHeight_act_B1200 == "on"{
+            height: $header_height_B1200;
+        }
+
+        @if $page_index_only_fullHeight_act_B1200 == "on"{
+            &.header_page_index{
+                height: $header_height_B1200;
+            }
+        }
     }
     
     @include afterMQ1200{
         @if $page_index_fullHeight_act_A1200 == "on" or $page_section_fullHeight_act_A1200 == "on"{
             height: $header_height_A1200;
-        } 
+        }
+
+        @if $page_index_only_fullHeight_act_A1200 == "on"{
+            &.header_page_index{
+                height: $header_height_A1200;
+            }
+        }
     }
 }

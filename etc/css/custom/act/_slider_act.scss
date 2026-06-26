@@ -1,5 +1,5 @@
 /* * NombreDeProyecto * ========================================================
-   Slider Activators | Custom [/etc/css/custom/act/slider_act.scss]
+   Slider Activators | Custom [/etc/css/custom/act/_slider_act.scss]
    ========================================================================== */
 
 @use "sass:color";
@@ -13,25 +13,23 @@
 
 
 /* // Listado --------------------------------------------------------------- */
-// 01 _ Slider Arrows
-// 02 _ Slider Arrows Carrusel
-// 03 _ Slider Dots
-// 04 _ Slider Vertical
+// 01 _ $slider_arrows_act
+// 02 _ $slider_arrows_carousel_act
+// 03 _ $slider_dots_act
+// 04 _ $slider_vertical_act
 //
 //
-// 01 _ Slider Arrows
-// Activa el if que se encuentran en `[/etc/css/custom/imp/slider_arrows_imp.scss]`.
+// 01 _ $slider_arrows_act
+// Activa el if que se encuentra en `[/etc/css/custom/_slider.scss]`.
 //
 // Imprime:
 // .slickPrev{}       
 // .slickNext{}
 //
 //
-// 02 _ Slider Arrows Carrusel
+// 02 _ $slider_arrows_carousel_act
 // REF [34]
-// Activa los if que se encuentran en 
-// `[/etc/css/custom/slider.scss]`, y
-// `[/etc/css/custom/slider_arrows_imp.scss]`.
+// Activa los if que se encuentran en `[/etc/css/custom/_slider.scss]`.
 //
 // Imprime:
 // .slick.slick_carousel{}
@@ -40,9 +38,12 @@
 // .slick_carousel .slickPrev{}       
 // .slick_carousel .slickNext{}
 //
+// Requiere `$slider_arrows_act` activada para generar los estilos base de
+// `.slickPrev` y `.slickNext`.
 //
-// 03 _ Slider Dots
-// Activa el if que se encuentran en `[/etc/css/custom/imp/slider_dots_imp.scss]`.
+//
+// 03 _ $slider_dots_act
+// Activa el if que se encuentra en `[/etc/css/custom/_slider.scss]`.
 //
 // Imprime:
 // .slickDots{}
@@ -51,9 +52,12 @@
 // .slickDots li button{}   
 //
 //
-// 04 _ Slider Vertical 
+// 04 _ $slider_vertical_act
 // REF [09]
-// Activa el if que se encuentran en `[/etc/css/custom/slider.scss]`.  
+// Activa el if que se encuentra en `[/etc/css/custom/_slider.scss]`.
+//
+// Genera ajustes de padding para `.slick.slick_vertical`. Las flechas
+// verticales se generan dentro de `$slider_arrows_act`.
 
 
 

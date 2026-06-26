@@ -1,5 +1,5 @@
 /* * NombreDeProyecto * ========================================================
-   Buttons Activators | Custom [/etc/css/custom/act/buttons_act.scss]
+   Buttons Activators | Custom [/etc/css/custom/act/_buttons_act.scss]
    ========================================================================== */
 
 /* // Descripcion ----------------------------------------------------------- */
@@ -19,25 +19,26 @@
 // Genera selectores de color para el elemento `button`, sus pseudo-clases `:focus`
 // y `:hover`, y la clase `.noHover`
 //
-// Ej. con color verdeAgua:
-// button.verdeAgua,
-// button.verdeAgua.noHover:focus,
-// button.verdeAgua.noHover:hover { color: #hex; }
-// button.verdeAgua:focus,
-// button.verdeAgua:hover { color: #hex; }
+// Ej. con color `greenSystemM`:
+// button.greenSystemM,
+// button.greenSystemM.noHover:focus,
+// button.greenSystemM.noHover:hover { color: #hex; }
+// button.greenSystemM:focus,
+// button.greenSystemM:hover { color: #hex; }
 //
 // Tambien genera selectores para las pseudo-clases `:focus` y `:hover` del
-// elemento `button` con clase del tipo `.bgColour`.
+// elemento `button`, usando como clase cada clave declarada en
+// `$colours_backgrounds_hover_map`.
 //
-// Ej. con color verdeAgua:
-// button.bgVerdeAgua:hover,
-// button.bgVerdeAgua:focus { background-color: #hex; }
+// Ej. con la clave `mainBgColour`:
+// button.mainBgColour:hover,
+// button.mainBgColour:focus { background-color: #hex; }
 //
 //
 // 02 _ $button_pointer_act
-// Activa el if que se encuentra en `[/etc/css/custom/buttons.scss]`
+// Activa el if que se encuentra en `[/etc/css/custom/_buttons.scss]`
 //
-// Genera la declaración `cursor: pointer;` para el elemento `button`.
+// Genera la declaracion `cursor: pointer;` para el elemento `button`.
 //
 // button{
 //    cursor: pointer;

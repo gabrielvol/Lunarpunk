@@ -1,5 +1,5 @@
 /* * NombreDeProyecto * ========================================================
-   Text Activators | Custom [/etc/css/custom/act/text_act.scss]
+   Text Activators | Custom [/etc/css/custom/act/_text_act.scss]
    ========================================================================== */
 
 @use "sass:color";
@@ -15,15 +15,17 @@
 //
 //
 // 01 _ $anchorUnderline
-// Activa el if que se encuentran en `[/etc/css/scss/settings_text.scss]`.
+// Activa el if que se encuentra en `[/etc/css/scss/settings_text.scss]`.
 //
-// Genera estilos para las anclas dentro de los elementos `p` y `li`, únicamente 
-// para sus pseudo-clases `:focus` y `:hover`
+// Genera subrayado para las anclas dentro de elementos `p` y `li` cuando el
+// contenedor tiene `:focus`, `:focus-visible` o `:hover`.
 //
 // Imprime:
 // p:focus a,
+// p:focus-visible a,
 // p:hover a,
 // li:focus a,
+// li:focus-visible a,
 // li:hover a{
 //   text-decoration: underline;
 // }
@@ -69,4 +71,4 @@
 
     
 
-$anchorUnderline:       off;   
+$anchorUnderline:       off;

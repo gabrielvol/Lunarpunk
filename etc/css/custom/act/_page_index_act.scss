@@ -1,5 +1,5 @@
 /* * NombreDeProyecto * ========================================================
-   Page Index Activators | Custom [/etc/css/custom/act/page_index_act.scss]
+   Page Index Activators | Custom [/etc/css/custom/act/_page_index_act.scss]
    ========================================================================== */
 
 @use "sass:color";
@@ -11,39 +11,50 @@
 
 
 /* // Listado --------------------------------------------------------------- */
-// 01 _ Page index Full Height
-// 02 _ Index Only Full Height
+// 01 _ $page_index_fullHeight_act_*
+// 02 _ $page_index_only_fullHeight_act_*
 //
 //
-// 01 _ Page index Full Height
+// 01 _ $page_index_fullHeight_act_*
 // Activa los if que se encuentran en
-// `[/etc/css/custom/imp/page_index_fullHeight_imp.scss]`
-// y se importa en
-// `[/etc/css/custom/page_index.scss]`
+// `[/etc/css/custom/imp/_page_index_fullHeight_imp.scss]`,
+// `[/etc/css/custom/imp/_footer_fullHeight_imp.scss]` y
+// `[/etc/css/custom/imp/_header_fullHeight_imp.scss]`.
 //
-// Ej. $page_index_fullHeight_act_A500 = "on" imprime:
-// @media (min-width: 500px) {
+// Los imports correspondientes deben estar habilitados en `_page_index.scss`,
+// `_footer.scss` y `_header.scss`.
+// Este grupo aplica las alturas de header y footer de forma global.
+//
+// Variantes responsive: `ALL`, `B500`, `A500`, `500O`, `B768`, `A768`,
+// `A768B1024`, `B1024`, `A1024`, `A1024B1200`, `B1200` y `A1200`.
+//
+// Ej. `$page_index_fullHeight_act_A500: on;` imprime:
+// @media (min-width: 501px) {
 //     .page_index {
 //         height: calc(100vh - $footer_height_A500 - $header_height_A500);
 //     }
 // }
 //
 //
-// 02 _ Index Only Full Height
+// 02 _ $page_index_only_fullHeight_act_*
 // Activa los if que se encuentran en
-// `[/etc/css/custom/imp/page_index_fullHeight_imp.scss]`,
-// `[/etc/css/custom/imp/footer_fullHeight_imp.scss]` y
-// `[/etc/css/custom/imp/header_fullHeight_imp.scss]`
+// `[/etc/css/custom/imp/_page_index_fullHeight_imp.scss]`,
+// `[/etc/css/custom/imp/_footer_fullHeight_imp.scss]` y
+// `[/etc/css/custom/imp/_header_fullHeight_imp.scss]`
 //
 // y se importan en
-// `[/etc/css/custom/page_index.scss]`,
-// `[/etc/css/custom/footer.scss]` y 
-// `[/etc/css/custom/header.scss]`
+// `[/etc/css/custom/_page_index.scss]`,
+// `[/etc/css/custom/_footer.scss]` y
+// `[/etc/css/custom/_header.scss]`
 // respectivamente.
+// Los tres imports correspondientes deben estar habilitados.
+// Usa las mismas variantes responsive que `$page_index_fullHeight_act_*`.
 //
-// Con Index Full Height activado la variable $header_height no puede ser `auto`
-// REF [04] `[/etc/css/custom/var/header_var.scss]`
-// Además de imprimir lo mismo que `01 Full Height` imprime:
+// Con Index Full Height activado la variable `$header_height_*` no puede ser
+// `auto`.
+// REF [04] `[/etc/css/custom/var/_header_var.scss]`
+// Ademas de imprimir lo mismo que `01 Full Height`, limita las alturas de
+// header y footer a los elementos con las clases especificas de Index:
 //
 // #header.header_page_index{
 //     height: $header_height;
@@ -94,7 +105,7 @@
 
     
     
-// 01 _ Page index Full Height ---------------------------------------------- */
+/* // 01 Page index Full Height ---------------------------------------------- */
 $page_index_fullHeight_act_ALL:     off;
 $page_index_fullHeight_act_B500:    off;
 $page_index_fullHeight_act_A500:    off;
@@ -120,4 +131,4 @@ $page_index_only_fullHeight_act_B1024:     off;
 $page_index_only_fullHeight_act_A1024:     off;
 $page_index_only_fullHeight_act_A1024B1200:     off; 
 $page_index_only_fullHeight_act_B1200:      off; 
-$page_index_only_fullHeight_act_A1200:      off; 
+$page_index_only_fullHeight_act_A1200:      off;

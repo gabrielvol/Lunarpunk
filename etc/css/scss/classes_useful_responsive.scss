@@ -1407,7 +1407,7 @@
 
 /* // After MQ768 Before MQ1200 Classes ------------------------------------- */
 @include MQ768_1200{
-    @if $classes_position_display_mask_cursor_act_A1024B1200 == "on"{
+    @if $classes_position_display_mask_cursor_act_A768B1200 == "on"{
 /*___ Positioning _______________________*/
         .pRelTTLO{position: relative}
         .pAbsTTLO{position: absolute}
@@ -1441,7 +1441,7 @@
         }
     }
     
-    @if $classes_lists_floats_act_A1024B1200 == "on"{
+    @if $classes_lists_floats_act_A768B1200 == "on"{
 /*___ Lists and floats __________________*/
         .unstyledTTLO, .horizontalTTLO{list-style: $none}
         .floatLeftTTLO, .horizontalTTLO li{float: $left}
@@ -1461,7 +1461,7 @@
         .floatNoneTTLO, .unstyledTTLO li{float: $none}
     }
     
-    @if $classes_text_act_A1024B1200 == "on"{
+    @if $classes_text_act_A768B1200 == "on"{
 /*___ Text ______________________________*/
         .txIndentedTTLO{text-indent: -9999px}
         .txAlignLeftTTLO{text-align: left}
@@ -1476,7 +1476,7 @@
         .txCaseLowerTTLO{text-transform: lowercase}
     }
         
-    @if $classes_bg_bd_NO_act_A1024B1200 == "on"{
+    @if $classes_bg_bd_NO_act_A768B1200 == "on"{
 /*___ Backgrounds, border and images ____*/
         .banTTLO{border: $none}
         .bgNoneTTLO{
@@ -1488,14 +1488,14 @@
         .bgNoImageTTLO{background-image: $none}
     }
     
-    @if $helpers_spacing_act_A1024B1200 == "on"{
+    @if $helpers_spacing_act_A768B1200 == "on"{
 /*___ Spacing Helpers ___________________*/
         @include spacingHelpersClassesGeneratorTTLO;
         .mraTTLO,.mhaTTLO{margin-right: $auto}
         .mlaTTLO,.mhaTTLO{margin-left: $auto}
     }
     
-    @if $classes_flexbox_act_A1024B1200 == "on"{
+    @if $classes_flexbox_act_A768B1200 == "on"{
 /*___ Flexbox Classes ___________________*/
         .displayFlexTTLO, .flexHorizontalTTLO, .flexColumnTTLO, .flexNoWrapTTLO, .flexJustifyEndTTLO, .flexJustifyCenterTTLO, .flexJustifyBetweenTTLO, .flexJustifyAroundTTLO, .flexAlignContentEndTTLO, .flexAlignContentCenterTTLO, .flexAlignContentBetweenTTLO, .flexAlignContentAroundTTLO, .flexAlignContentStretchTTLO, .flexAlignItemsEndTTLO, .flexAlignItemsCenterTTLO, .flexAlignItemsBaselineTTLO, .flexAlignItemsStretchTTLO, .horizontalCenterFlexTTLO{
             display: flex;

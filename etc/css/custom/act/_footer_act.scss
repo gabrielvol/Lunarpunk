@@ -1,5 +1,5 @@
 /* * NombreDeProyecto * ========================================================
-   Footer Activators | Custom [/etc/css/custom/act/footer_act.scss]
+   Footer Activators | Custom [/etc/css/custom/act/_footer_act.scss]
    ========================================================================== */
 
 @use "sass:color";
@@ -18,10 +18,22 @@
 // REF [20]
 //
 // Activa los if que se encuentran en
-// `[/etc/css/custom/footer.scss].
+// `[/etc/css/custom/_footer.scss]`.
 //
-// Genera declaraciones para `.logo_footer_container` y `.logo_footer_container`.
+// Genera declaraciones para `.logo_footer_container` y `.footer_txt`.
 // Deben estar dentro de un contenedor con `.displayFlex`.
+//
+// Variantes responsive:
+// - `_B500`: hasta 500px.
+// - `_A500`: desde 501px.
+// - `_500O`: desde 501px hasta 767px.
+// - `_A600`: desde 601px.
+// - `_A768`: desde 768px.
+// - `_A1024`: desde 1024px.
+//
+// Si `_A500` esta activada, el contenido flotado tambien permanece activo
+// desde 768px y 1024px. Si `_A768` esta activada, tambien permanece activo
+// desde 1024px.
 
 
 
@@ -64,7 +76,7 @@
 
 
 
-/* // Logo y dirección flotados --------------------------------------------- */
+/* // Logo y direccion flotados --------------------------------------------- */
 $footer_floatedContent_act_B500:    off;
 $footer_floatedContent_act_A500:    off;
 $footer_floatedContent_act_500O:    off;

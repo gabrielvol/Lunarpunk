@@ -1,5 +1,5 @@
 /* * NombreDeProyecto * ========================================================
-   Nav Activators | Custom [/etc/css/custom/act/nav_lang_act.scss]
+   Nav Language Activators | Custom [/etc/css/custom/act/_nav_lang_act.scss]
    ========================================================================== */ 
 
 @use "sass:color";
@@ -16,18 +16,20 @@
 //
 //
 // 01 _ $nav_lang_flag_rounded_act
-// Activa el if que se encuentra en `[/etc/css/custom/nav_lang.scss]`.
+// Activa los if que se encuentran en `[/etc/css/custom/_nav_lang.scss]`.
 // 
-// Genera estilos para banderas redondas, enmascaradas. Responsive.
+// Genera banderas redondas y enmascaradas, con tamanos y posicion responsive.
+// Tambien agrega `box-shadow` a `:focus`, `:focus-visible` y `:hover`.
 //
 //
 // 02 _ $nav_lang_navDrawerOpen_act
-// Activa los if que se encuentran en `[/etc/css/custom/nav_lang.scss]` y 
+// Activa los if que se encuentran en `[/etc/css/custom/_nav_lang.scss]` y
 // `[/etc/css/scss/settings_nav_drawer.scss]`.
 // 
 // Genera estilos que se usan cuando a `.nav_lang_ul` se le agrega la clase
 // `.navDrawer_open`. Ubica la lista de idiomas dentro de Nav Drawer, abajo.
 // Agrega un padding-bottom en `.nav_main_ul` para darle espacio.
+// Solo tiene efecto cuando `$nav_drawer_act` tambien esta activada.
 
 
 
