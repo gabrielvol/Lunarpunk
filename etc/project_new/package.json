@@ -1,0 +1,39 @@
+{
+  "name": "Lunarpunk",
+  "version": "1.0.0",
+  "description": "Framework de Gabriel Volonte",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gabrielvol/frameworkGV.git"
+  },
+  "homepage": "https://github.com/gabrielvol/frameworkGV/blob/main/README.md",
+  "author": "Gabriel Volonte",
+  "mail": "tampas@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabrielvol/frameworkGV/issues",
+    "mail": "tampas@gmail.com"
+  },
+  "scripts": {
+    "build": "gulp",
+    "watch": "gulp watch",
+    "start": "gulp watch"
+  },
+    "devDependencies": {
+      "gulp": "^4.0.2",
+      "sass": "^1.77.0",
+      "gulp-dart-sass": "^1.1.0",
+      "gulp-postcss": "^10.0.0",
+      "postcss": "^8.5.10",
+      "autoprefixer": "^10.4.0",
+      "cssnano": "^6.0.0",
+      "gulp-sourcemaps": "^3.0.0",
+      "fancy-log": "^2.0.0"
+    },
+  "browserslist": [
+    "defaults"
+  ]
+}
