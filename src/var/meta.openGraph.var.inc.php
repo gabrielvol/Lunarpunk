@@ -88,7 +88,7 @@ else:
     
 endif;    
     
-    $openGraph_img_type             = 'image/jpg';
+    $openGraph_img_type             = 'image/jpeg';
 
 
 /* // -- misc */
@@ -99,6 +99,7 @@ endif;
     } else {
         $openGraph_url = $url_main_full;
     }
+    $url_canonical                  = $openGraph_url;
     $openGraph_type                 = 'website';
     $openGraph_locale               = $site_lang_locale;
 

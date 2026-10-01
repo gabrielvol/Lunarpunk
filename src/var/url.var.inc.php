@@ -149,10 +149,6 @@ $url_recuperarContrasena_full = $url_main . $url_recuperarContrasena;
     // $url_PAGINA_hs_PAGINA_full    = $url_main . $url_PAGINA . $url_PAGINA;
 
 
-/* // Canonical ------------------------------------------------------------- */
-$url_canonical = !empty($page_url_full) ? $page_url_full : $url_main_full;
-
-
 /* // href ------------------------------------------------------------------ */
 $href_root          = 'href="' . $url_root . '"'; 
 $href_index         = 'href="' . $url_index . '"';

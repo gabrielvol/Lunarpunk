@@ -100,7 +100,7 @@ p, a, li, dd, dt, .pSize{
 
         &[lang|="zh"] {
             /* // REF [14a] */
-            font-size: $ftSize_paragraph_B768;
+            font-size: $ftSize_paragraph_B350;
         }
     }
     @include afterMQ350{
