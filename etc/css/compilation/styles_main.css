@@ -12,7 +12,7 @@
 /* // Referencias globales de nombres de variables y mixins ----------------- */
 /* // Activators ------------------------------------------------------------ */
 /* * NombreDeProyecto * ========================================================
-   Useful Classes Activators | Custom [/etc/css/custom/act/classes_useful_act.scss]
+   Useful Classes Activators | Custom [/etc/css/custom/act/_classes_useful_act.scss]
    ========================================================================== */
 /* // Descripcion ----------------------------------------------------------- */
 /* // Listado --------------------------------------------------------------- */
@@ -30,9 +30,10 @@
 /* // Tablet Only TO -------------------------------------------------------- */
 /* // After Tablet AT ------------------------------------------------------- *
 // REF [05]
-Si se activa `$classes_container_act_A768` `$nav_double_A768_act` hay que activar
-`$nav_double_A768_act` en `[/etc/css/custom/act/nav_main_act.scss]` y
-`$nav_double_A768_act` en `[/src/var/act/nav.act.inc.php]`
+Si se activa `$nav_double_A768_act`, tambien hay que activar
+`$classes_container_act_A768` en este archivo y `$nav_double_A768_act` en
+`[/src/var/act/nav.act.inc.php]`.
+El activador SCSS se encuentra en `[/etc/css/custom/act/_nav_main_act.scss]`.
 */
 /* // After Tablet Landscape ATL -------------------------------------------- */
 /* // Tablet Landscape Only TLO --------------------------------------------- */
@@ -52,13 +53,13 @@ $classes_bg_bd_NO_act_AL:                       off; */
 /* // After Desktop A1500 --------------------------------------------------- */
 /* // After Desktop A1600 --------------------------------------------------- */
 /* * NombreDeProyecto * ========================================================
-   Logo Activators | Custom [/etc/css/custom/act/logo_act.scss]
+   Logo Activators | Custom [/etc/css/custom/act/_logo_act.scss]
    ========================================================================== */
 /* // Descripcion ----------------------------------------------------------- */
 /* // Listado --------------------------------------------------------------- */
 /* // Referencias globales de nombres de variables y mixins ----------------- */
 /* * NombreDeProyecto * ========================================================
-   Buttons Activators | Custom [/etc/css/custom/act/buttons_act.scss]
+   Buttons Activators | Custom [/etc/css/custom/act/_buttons_act.scss]
    ========================================================================== */
 /* // Descripcion ----------------------------------------------------------- */
 /* // Listado --------------------------------------------------------------- */
@@ -66,7 +67,7 @@ $classes_bg_bd_NO_act_AL:                       off; */
 /* // Colours --------------------------------------------------------------- */
 /* // Pointers -------------------------------------------------------------- */
 /* * NombreDeProyecto * ========================================================
-   Forms activators | Custom [/etc/css/custom/act/form_act.scss]
+   Forms Activators | Custom [/etc/css/custom/act/_form_act.scss]
    ========================================================================== */
 /* // Descripcion ----------------------------------------------------------- */
 /* // Listado --------------------------------------------------------------- */
@@ -77,7 +78,7 @@ $classes_bg_bd_NO_act_AL:                       off; */
 /* // Form Validation ------------------------------------------------------- */
 /* // Form Status ----------------------------------------------------------- */
 /* * NombreDeProyecto * ========================================================
-   Slider Activators | Custom [/etc/css/custom/act/slider_act.scss]
+   Slider Activators | Custom [/etc/css/custom/act/_slider_act.scss]
    ========================================================================== */
 /* // Descripcion ----------------------------------------------------------- */
 /* // Listado --------------------------------------------------------------- */
@@ -86,26 +87,26 @@ $classes_bg_bd_NO_act_AL:                       off; */
 /* // Dots / Pagination ----------------------------------------------------- */
 /* // Slider vertical ------------------------------------------------------- */
 /* * NombreDeProyecto * ========================================================
-   Fonts Activators | Custom [/etc/css/custom/act/fonts_act.scss]
+   Fonts Activators | Custom [/etc/css/custom/act/_fonts_act.scss]
    ========================================================================== */
 /* // Descripcion ----------------------------------------------------------- */
 /* // Listado --------------------------------------------------------------- */
 /* // Referencias globales de nombres de variables y mixins ----------------- */
 /* // General --------------------------------------------------------------- */
 /* * NombreDeProyecto * ========================================================
-   Text Activators | Custom [/etc/css/custom/act/text_act.scss]
+   Text Activators | Custom [/etc/css/custom/act/_text_act.scss]
    ========================================================================== */
 /* // Descripcion ----------------------------------------------------------- */
 /* // Listado --------------------------------------------------------------- */
 /* // Referencias globales de nombres de variables y mixins ----------------- */
 /* * NombreDeProyecto * ========================================================
-   Google Activators | Custom [/etc/css/custom/act/google_act.scss]
+   Google Activators | Custom [/etc/css/custom/act/_google_act.scss]
    ========================================================================== */
 /* // Descripcion ----------------------------------------------------------- */
 /* // Listado --------------------------------------------------------------- */
 /* // Referencias globales de nombres de variables y mixins ----------------- */
 /* * NombreDeProyecto * ========================================================
-   Header Activators | Custom [/etc/css/custom/act/header_act.scss]
+   Header Activators | Custom [/etc/css/custom/act/_header_act.scss]
    ========================================================================== */
 /* // Descripcion ----------------------------------------------------------- */
 /* // Listado --------------------------------------------------------------- */
@@ -114,35 +115,36 @@ $classes_bg_bd_NO_act_AL:                       off; */
 /* // Menu y logo Flexbox --------------------------------------------------- */
 /* // Header // REF [08] ---------------------------------------------------- */
 /* * NombreDeProyecto * ========================================================
-   Nav Activators | Custom [/etc/css/custom/act/nav_main_act.scss]
+   Nav Main Activators | Custom [/etc/css/custom/act/_nav_main_act.scss]
    ========================================================================== */
 /* // Descripcion ----------------------------------------------------------- */
 /* // Listado --------------------------------------------------------------- */
 /* // Referencias globales de nombres de variables y mixins ----------------- */
 /* // Nav Main -------------------------------------------------------------- */
 /* * NombreDeProyecto * ========================================================
-   Nav Activators | Custom [/etc/css/custom/act/nav_lang_act.scss]
+   Nav Language Activators | Custom [/etc/css/custom/act/_nav_lang_act.scss]
    ========================================================================== */
 /* // Descripcion ----------------------------------------------------------- */
 /* // Listado --------------------------------------------------------------- */
 /* // Referencias globales de nombres de variables y mixins ----------------- */
 /* // Nav Language ---------------------------------------------------------- */
 /* * NombreDeProyecto * ========================================================
-   Footer Activators | Custom [/etc/css/custom/act/footer_act.scss]
+   Footer Activators | Custom [/etc/css/custom/act/_footer_act.scss]
    ========================================================================== */
 /* // Descripcion ----------------------------------------------------------- */
 /* // Listado --------------------------------------------------------------- */
 /* // Referencias globales de nombres de variables y mixins ----------------- */
-/* // Logo y dirección flotados --------------------------------------------- */
+/* // Logo y direccion flotados --------------------------------------------- */
 /* * NombreDeProyecto * ========================================================
-   Page Index Activators | Custom [/etc/css/custom/act/page_index_act.scss]
+   Page Index Activators | Custom [/etc/css/custom/act/_page_index_act.scss]
    ========================================================================== */
 /* // Descripcion ----------------------------------------------------------- */
 /* // Listado --------------------------------------------------------------- */
 /* // Referencias globales de nombres de variables y mixins ----------------- */
+/* // 01 Page index Full Height ---------------------------------------------- */
 /* // 02 Index Only Full Height --------------------------------------------- */
 /* * NombreDeProyecto * ========================================================
-   Page section Activators | Custom [/etc/css/custom/act/page_section_act.scss]
+   Page Section Activators | Custom [/etc/css/custom/act/_page_section_act.scss]
    ========================================================================== */
 /* // Descripcion ----------------------------------------------------------- */
 /* // Listado --------------------------------------------------------------- */
@@ -248,14 +250,16 @@ $classes_bg_bd_NO_act_AL:                       off; */
 /* // Sans Serif ------------------------------------------------------------ */
 /* // Serif ----------------------------------------------------------------- */
 /* // Monoespaciadas -------------------------------------------------------- */
-/* // Chinese --------------------------------------------------------------- */
+/* // Chinese // REF [14a] -------------------------------------------------- */
 /* // Font Sizes ------------------------------------------------------------ */
+/* // REF [14a] */
 /* * NombreDeProyecto * ========================================================
    Fonts Main Variables | Custom [/etc/css/custom/var/fonts_main_var.scss]
    ========================================================================== */
 /* // Descripcion ----------------------------------------------------------- */
 /* // Referencias globales de nombres de variables y mixins ----------------- */
 /* // Variables de fuentes -------------------------------------------------- */
+/* // REF [14a] */
 /* * NombreDeProyecto * ========================================================
    Text Variables | Custom [/etc/css/custom/var/text_var.scss]
    ========================================================================== */
@@ -264,10 +268,13 @@ $classes_bg_bd_NO_act_AL:                       off; */
 /* // Text Fonts ------------------------------------------------------------ */
 /* // REF [46] Fuentes Regular y Bold */
 /* // REF [01] Google fonts */
+/* // REF [14a] */
 /* // Espaciado y cuerpo de texto ------------------------------------------- */
 /* // REF [01] Google fonts */
+/* // REF [14a] */
 /* // Abbreviations / Symbols ----------------------------------------------- */
 /* // Headings -------------------------------------------------------------- */
+/* // REF [14a] */
 /* * NombreDeProyecto * ========================================================
    Font-face | Custom [/etc/css/custom/fontFace.scss]
    ========================================================================== */
@@ -663,6 +670,7 @@ $nav_lang_anchor_size_AT:       $nav_lang_ul_width_A768;
 /* // Generador de clases por cada fuente ----------------------------------- */
 /* // Generador de pesos por cada fuente ------------------------------------ */
 /* // Generador de clases por cada tamaño de fuente ------------------------- */
+/* // REF [14a] */
 /* * NombreDeProyecto * ========================================================
    Mixins para texto y alturas de X | Etc [/etc/css/scss/mixins_text.scss]
    ========================================================================== */
@@ -874,7 +882,8 @@ img {
   -ms-interpolation-mode: bicubic;
 }
 
-img[src$=".png"], img[src$=".gif"], img[src$=".svg"] {
+img[src$=".png"], img[src$=".gif"], img[src$=".svg"],
+img[src*=".png?"], img[src*=".gif?"], img[src*=".svg?"] {
   background-color: transparent;
 }
 
@@ -928,6 +937,16 @@ h1, h2, h3, h4, h5, h6, p, b, strong, i, em, cite, dfn, dl, dd, dt, a, li, butto
   font-size: 1rem;
   line-height: 3.125ex;
 }
+h1[lang|=zh], h2[lang|=zh], h3[lang|=zh], h4[lang|=zh], h5[lang|=zh], h6[lang|=zh], p[lang|=zh], b[lang|=zh], strong[lang|=zh], i[lang|=zh], em[lang|=zh], cite[lang|=zh], dfn[lang|=zh], dl[lang|=zh], dd[lang|=zh], dt[lang|=zh], a[lang|=zh], li[lang|=zh], button[lang|=zh], label[lang|=zh], input[lang|=zh], select[lang|=zh], textarea[lang|=zh], blockquote[lang|=zh], table[lang|=zh] {
+  /* // REF [14a] */
+  font-family: "PingFang SC" !important;
+  font-weight: 400 !important;
+  font-size: 1.2rem;
+  /* line-height: 1.7!important; */
+  letter-spacing: 0.02em !important;
+  word-break: normal !important;
+  overflow-wrap: anywhere !important;
+}
 
 h1, h2, h3, h4, h5, h6, p, b, strong, em, cite, dfn, dl, dd, dt, a, li, button, label, input, select, textarea, blockquote, table {
   font-style: normal;
@@ -954,30 +973,54 @@ h1, h2, h3, h4, h5, h6 {
   p, a, li, dd, dt, .pSize {
     font-size: 0.8rem;
   }
+  p[lang|=zh], a[lang|=zh], li[lang|=zh], dd[lang|=zh], dt[lang|=zh], .pSize[lang|=zh] {
+    /* // REF [14a] */
+    font-size: 0.8rem;
+  }
 }
 @media (min-width: 351px) {
   p, a, li, dd, dt, .pSize {
     font-size: 0.9rem;
+  }
+  p[lang|=zh], a[lang|=zh], li[lang|=zh], dd[lang|=zh], dt[lang|=zh], .pSize[lang|=zh] {
+    /* // REF [14a] */
+    font-size: 1.1rem;
   }
 }
 @media (min-width: 501px) {
   p, a, li, dd, dt, .pSize {
     font-size: 0.95rem;
   }
+  p[lang|=zh], a[lang|=zh], li[lang|=zh], dd[lang|=zh], dt[lang|=zh], .pSize[lang|=zh] {
+    /* // REF [14a] */
+    font-size: 1.14rem;
+  }
 }
 @media (min-width: 768px) {
   p, a, li, dd, dt, .pSize {
     font-size: 1rem;
+  }
+  p[lang|=zh], a[lang|=zh], li[lang|=zh], dd[lang|=zh], dt[lang|=zh], .pSize[lang|=zh] {
+    /* // REF [14a] */
+    font-size: 1.2rem;
   }
 }
 @media (min-width: 1024px) {
   p, a, li, dd, dt, .pSize {
     font-size: 1rem;
   }
+  p[lang|=zh], a[lang|=zh], li[lang|=zh], dd[lang|=zh], dt[lang|=zh], .pSize[lang|=zh] {
+    /* // REF [14a] */
+    font-size: 1.2rem;
+  }
 }
 @media (min-width: 1201px) {
   p, a, li, dd, dt, .pSize {
     font-size: 1rem;
+  }
+  p[lang|=zh], a[lang|=zh], li[lang|=zh], dd[lang|=zh], dt[lang|=zh], .pSize[lang|=zh] {
+    /* // REF [14a] */
+    font-size: 1.2rem;
   }
 }
 
@@ -1060,6 +1103,25 @@ a:focus, a:focus-visible, a:hover {
   h6, .heading6 {
     font-size: 1.3rem;
   }
+  h1[lang|=zh], .hUno[lang|=zh] {
+    font-size: 1.6rem;
+  }
+  h2[lang|=zh], .hDos[lang|=zh] {
+    font-size: 1.5rem;
+  }
+  h3[lang|=zh], .hTre[lang|=zh] {
+    font-size: 1.4rem;
+  }
+  h4[lang|=zh], .hCua[lang|=zh] {
+    font-size: 1.3rem;
+  }
+  h5[lang|=zh], .hCin[lang|=zh] {
+    font-size: 1.3rem;
+  }
+  h6[lang|=zh], .hSei[lang|=zh] {
+    font-size: 1.3rem;
+  }
+  /* // REF [14a] */
 }
 @media (min-width: 351px) {
   h1, .heading1 {
@@ -1080,6 +1142,25 @@ a:focus, a:focus-visible, a:hover {
   h6, .heading6 {
     font-size: 1.3rem;
   }
+  h1[lang|=zh], .hUno[lang|=zh] {
+    font-size: 1.6rem;
+  }
+  h2[lang|=zh], .hDos[lang|=zh] {
+    font-size: 1.5rem;
+  }
+  h3[lang|=zh], .hTre[lang|=zh] {
+    font-size: 1.4rem;
+  }
+  h4[lang|=zh], .hCua[lang|=zh] {
+    font-size: 1.3rem;
+  }
+  h5[lang|=zh], .hCin[lang|=zh] {
+    font-size: 1.3rem;
+  }
+  h6[lang|=zh], .hSei[lang|=zh] {
+    font-size: 1.3rem;
+  }
+  /* // REF [14a] */
 }
 @media (min-width: 501px) {
   h1, .heading1 {
@@ -1100,6 +1181,25 @@ a:focus, a:focus-visible, a:hover {
   h6, .heading6 {
     font-size: 1.3rem;
   }
+  h1[lang|=zh], .hUno[lang|=zh] {
+    font-size: 1.6rem;
+  }
+  h2[lang|=zh], .hDos[lang|=zh] {
+    font-size: 1.5rem;
+  }
+  h3[lang|=zh], .hTre[lang|=zh] {
+    font-size: 1.4rem;
+  }
+  h4[lang|=zh], .hCua[lang|=zh] {
+    font-size: 1.3rem;
+  }
+  h5[lang|=zh], .hCin[lang|=zh] {
+    font-size: 1.3rem;
+  }
+  h6[lang|=zh], .hSei[lang|=zh] {
+    font-size: 1.3rem;
+  }
+  /* // REF [14a] */
 }
 @media (min-width: 768px) {
   h1, .heading1 {
@@ -1120,6 +1220,25 @@ a:focus, a:focus-visible, a:hover {
   h6, .heading6 {
     font-size: 1.3rem;
   }
+  h1[lang|=zh], .hUno[lang|=zh] {
+    font-size: 1.6rem;
+  }
+  h2[lang|=zh], .hDos[lang|=zh] {
+    font-size: 1.5rem;
+  }
+  h3[lang|=zh], .hTre[lang|=zh] {
+    font-size: 1.4rem;
+  }
+  h4[lang|=zh], .hCua[lang|=zh] {
+    font-size: 1.3rem;
+  }
+  h5[lang|=zh], .hCin[lang|=zh] {
+    font-size: 1.3rem;
+  }
+  h6[lang|=zh], .hSei[lang|=zh] {
+    font-size: 1.3rem;
+  }
+  /* // REF [14a] */
 }
 @media (min-width: 1024px) {
   h1, .heading1 {
@@ -1140,6 +1259,25 @@ a:focus, a:focus-visible, a:hover {
   h6, .heading6 {
     font-size: 1.4rem;
   }
+  h1[lang|=zh], .hUno[lang|=zh] {
+    font-size: 2.4rem;
+  }
+  h2[lang|=zh], .hDos[lang|=zh] {
+    font-size: 2.2rem;
+  }
+  h3[lang|=zh], .hTre[lang|=zh] {
+    font-size: 2rem;
+  }
+  h4[lang|=zh], .hCua[lang|=zh] {
+    font-size: 1.8rem;
+  }
+  h5[lang|=zh], .hCin[lang|=zh] {
+    font-size: 1.6rem;
+  }
+  h6[lang|=zh], .hSei[lang|=zh] {
+    font-size: 1.4rem;
+  }
+  /* // REF [14a] */
 }
 @media (min-width: 1201px) {
   h1, .heading1 {
@@ -1160,6 +1298,25 @@ a:focus, a:focus-visible, a:hover {
   h6, .heading6 {
     font-size: 1.4rem;
   }
+  h1[lang|=zh], .hUno[lang|=zh] {
+    font-size: 2.4rem;
+  }
+  h2[lang|=zh], .hDos[lang|=zh] {
+    font-size: 2.2rem;
+  }
+  h3[lang|=zh], .hTre[lang|=zh] {
+    font-size: 2rem;
+  }
+  h4[lang|=zh], .hCua[lang|=zh] {
+    font-size: 1.8rem;
+  }
+  h5[lang|=zh], .hCin[lang|=zh] {
+    font-size: 1.6rem;
+  }
+  h6[lang|=zh], .hSei[lang|=zh] {
+    font-size: 1.4rem;
+  }
+  /* // REF [14a] */
 }
 /* // Colour classes -------------------------------------------------------- */
 .white, .white b, .white strong, .white i, .white em {
@@ -5457,6 +5614,26 @@ form .form_validation_span.form_validation_span_active {
 }
 .pop_formStatus p a:focus, .pop_formStatus p a:focus-visible, .pop_formStatus p a:hover {
   text-decoration: underline;
+}
+.pop_formStatus.pop_formStatus_error p.pop_formStatus_error_inner {
+  position: relative;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 30px 10px 14px;
+}
+.pop_formStatus.pop_formStatus_error p.pop_formStatus_error_inner, .pop_formStatus.pop_formStatus_error p.pop_formStatus_error_inner::before {
+  background-color: #f9f9f9;
+  font-family: Consolas, "Consolas", "Andale Mono", "Lucida Console", "Menlo", "Bitstream Vera Sans Mono", "Courier New", monospace;
+  font-size: 0.9rem !important;
+  color: #111;
+  text-align: left;
+}
+.pop_formStatus.pop_formStatus_error p.pop_formStatus_error_inner::before {
+  content: "Error:";
+  display: block;
+  position: absolute;
+  top: 6px;
+  left: 10px;
 }
 @media (max-width: 300px) {
   .pop_formStatus {
