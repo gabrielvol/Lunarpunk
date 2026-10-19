@@ -4,6 +4,7 @@
 
 /* // Descripcion ----------------------------------------------------------- */
 // Activadores para fuentes.
+// Usar `on` para activar y `off` para desactivar cada opcion.
 //
 // #activator #font #ftWeight #google
 //
@@ -26,14 +27,25 @@
 // `[/etc/css/scss/settings_nav.scss]` y
 // `[/etc/css/scss/settings_nav_drawer.scss]`.
 //
-// Genera declaraciones `font-weight` para los elementos que tienen su fuente
-// cargada desde Google Fonts declarada con una variable `$ftFamily` por CSS.
+// Genera declaraciones `font-weight` usando las variables de peso para
+// campos, labels, botones de formulario y elementos de navegacion.
+// Tambien usa `$ftWeight_bold_global` en `.txBold` y sus descendientes
+// seleccionados; con `off`, esa clase usa `font-weight: 400`.
+//
+// El activador no descarga fuentes ni genera enlaces a Google Fonts.
+// Cargar las familias y pesos necesarios en `[/src/common/_head.inc.php]`
+// y declarar las familias segun REF [01] en
+// `[/etc/css/custom/var/_fonts_main_var.scss]`, fuera de `$font_families_map`.
+// Asignar esas familias y sus pesos en las variables de texto, form y nav.
 //
 //
 // 02 _ $fonts_zh_act
 // REF [14a] Idioma Chino ZH, MingLiu font
 //
-// Sin usar por el momento
+// Variable reservada, sin condiciones que la consuman en los SCSS actuales.
+// Cambiar su valor no genera estilos ni activa el idioma chino.
+// La carga de la hoja para `zh_CN` se decide por `$gettext_lang` en
+// `[/src/common/head.css.inc.php]`.
 
 
 

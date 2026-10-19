@@ -4,12 +4,29 @@
 
 /* // Descripcion ----------------------------------------------------------- */
 // Activadores para clases useful.
+// Usar `on` para generar cada grupo y `off` para omitirlo.
+// Los grupos y sus variantes responsive se activan por separado: `ALL` no
+// activa las variantes responsive y una variante no activa las demas.
+// Los sufijos de los activadores no siempre coinciden con los de las clases
+// CSS; consultar los selectores en los archivos indicados en el listado.
 //
 // #activator #background #border #class #container #flexbox #list #margin
 // #padding #responsive #text #useful
 
 // REF [05]
 // REF [38*] ContainerMAX width
+
+// Las media queries se definen en `[/etc/css/custom/_mediaQueries_mx.scss]`.
+// `ALL` aplica a todos los anchos. `_B500` llega hasta 500px y `_A500`
+// comienza en 501px; `_500O` abarca de 501px a 767px. `_B600` llega hasta
+// 600px y `_A600` comienza en 601px; `_B650` llega hasta 650px y `_A650`
+// comienza en 651px. `_B768` llega hasta 767px y `_A768` comienza en 768px.
+// `_B1024` llega hasta 1023px y `_A1024` comienza en 1024px.
+// `_A768B1024` abarca de 768px a 1023px; `_A1024B1200`, de 1024px a
+// 1200px; `_A768B1200`, de 768px a 1199px. `_B1200` llega hasta 1200px.
+// `_A1200` comienza en 1201px. `_A1300`, `_A1400`, `_A1500` y `_A1600`
+// comienzan en 1301px, 1401px, 1501px y 1601px, respectivamente.
+// El bloque `_AL` esta comentado y no declara activadores disponibles.
 
 
 /* // Listado --------------------------------------------------------------- */
@@ -27,6 +44,10 @@
 // Genera anchos responsive para `.container`, clases `.container*` y variantes
 // `.container_centered_absolute_*` con posicion y margenes negativos para cada
 // media query.
+// Los anchos generales de `.container` tambien tienen reglas incondicionales;
+// desactivar estos grupos no elimina todos los estilos de contenedor.
+// Los valores del ejemplo dependen de
+// `[/etc/css/custom/var/_container_sizes_var.scss]`.
 //
 // Ej. con $classes_container_act_A500
 // @media (min-width: 501px) {
@@ -129,8 +150,9 @@
 // margenes horizontales automaticos.
 //
 // `$classes_position_display_mask_cursor_act` genera clases de posicion,
-// display, box-sizing, centrado vertical y contenido oculto accesible. Las
-// variantes `ALL` tambien generan mascaras, coberturas y cursores.
+// display, box-sizing, centrado vertical y contenido oculto accesible
+// (REF [22]). Las variantes `ALL` tambien generan mascaras, coberturas
+// y cursores.
 //
 // `$classes_flexbox_act` genera clases para display flex, direccion, wrap,
 // justify-content, align-content y align-items.

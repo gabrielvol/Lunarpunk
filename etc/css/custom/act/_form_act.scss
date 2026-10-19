@@ -4,6 +4,10 @@
 
 /* // Descripcion ----------------------------------------------------------- */
 // Activadores para elementos de form.
+// Usar `on` para activar y `off` para desactivar cada opcion.
+// Estos valores controlan estilos; no crean campos ni validacion JavaScript.
+// REF [36] Para cargar los recursos del formulario, configurar `$has_form`
+// en las variables PHP de la pagina correspondiente.
 //
 // #activator #button #class #colour #form #input #label #mixin #submit
 // #tooltip #validation
@@ -27,6 +31,7 @@
 //
 // Genera estilos alternativos segun los campos esten dentro (`on`) o fuera
 // (`off`) del elemento `label`.
+// No modifica el HTML: elegir el valor segun la estructura del formulario.
 //
 //
 // 02 _ $form_label_coloured_act
@@ -49,6 +54,9 @@
 // Genera estilos de posicion y transicion para `.form_label_name`, que cambia
 // cuando `label` tiene las clases `.input_has_focus_js`,
 // `.input_has_value_js` o la pseudo-clase `:hover`.
+// Revisar tambien los comentarios REF [39] de `_form.scss`: indican donde
+// declarar el font-size inicial y comentar la declaracion posterior de
+// `.form_label_name`, que de lo contrario puede sobrescribirlo.
 //
 // Ej.:   
 // .form_label_name.form_label_name{
@@ -77,6 +85,9 @@
 // Genera selectores para las pseudo-clases `:focus` y `:hover` de los
 // elementos `input[type="submit"]` e `input[type="file"]` con clase del tipo
 // declarado como clave en `$colours_backgrounds_hover_map`.
+// El mapa se encuentra en `[/etc/css/custom/var/_colours_backgrounds_var.scss]`.
+// Requiere incluir `backgroundColourHoverClassesGenerator`, como se hace en
+// `[/etc/css/custom/_includes_backgrounds.scss]`.
 //
 // Ej. con la clave `mainBgColour`:
 // input[type="submit"].mainBgColour:hover,
@@ -95,6 +106,8 @@
 // `$form_input_bdColour_hover` para las pseudo-clases `:focus` y `:hover`.
 // Cuando esta desactivada, genera `border: none` para estos elementos y sus
 // pseudo-clases.
+// Los botones de formulario se estilizan mas adelante con
+// `$form_submit_border_act`, que prevalece sobre este borde general.
 //
 // Ej.
 // form input,
@@ -157,6 +170,8 @@
 //
 // Genera un pseudo-elemento `::after` con un icono de confirmacion para
 // `h2 span` dentro de `.pop_formStatus_ok`.
+// Usa la imagen `form_ok.svg` bajo `#{$dir_env}/img/` y requiere que ese
+// elemento exista en el popup; no determina el resultado del envio.
 
 
 /* // Referencias globales de nombres de variables y mixins ----------------- */

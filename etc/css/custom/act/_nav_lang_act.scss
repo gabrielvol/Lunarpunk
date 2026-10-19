@@ -5,7 +5,14 @@
 @use "sass:color";
 @use "sass:map";
 /* // Descripcion ----------------------------------------------------------- */
-// Archivo de variables activadoras.
+// Activadores para la presentacion de la navegacion de idiomas.
+// Usar `on` para activar y `off` para desactivar cada opcion.
+// Requieren el HTML `.nav_lang_ul` y cargar `_nav_lang.scss` desde
+// `[/etc/css/custom/styles_main.scss]`, donde su @use esta comentado.
+// Antes de habilitarlo, revisar su @use `../scss/var_all`: ese archivo no
+// existe actualmente; el modulo general disponible es `var_all_pre.scss`.
+// Los tamanos, separaciones y colores se definen en
+// `[/etc/css/custom/var/_nav_lang_var.scss]`.
 //
 // #activator #button #flags #gettext #language #nav 
 
@@ -20,9 +27,16 @@
 // 
 // Genera banderas redondas y enmascaradas, con tamanos y posicion responsive.
 // Tambien agrega `box-shadow` a `:focus`, `:focus-visible` y `:hover`.
+// Aplica `border-radius: 50%` al ancla y recorta la imagen con
+// `overflow: hidden`. El diametro usa `$nav_lang_flag_height_B768` hasta 767px y
+// `$nav_lang_flag_height_A768` desde 768px; la imagen queda centrada dentro.
+// Con `off` mantiene los tamanos rectangulares generales de las banderas.
+// Al abrir el Drawer, las reglas de `.navDrawer_open` usan los tamanos
+// `$nav_lang_flag_*_clicked` para esa presentacion.
 //
 //
 // 02 _ $nav_lang_navDrawerOpen_act
+// REF [33] Activador, nav_language
 // Activa los if que se encuentran en `[/etc/css/custom/_nav_lang.scss]` y
 // `[/etc/css/scss/settings_nav_drawer.scss]`.
 // 
@@ -30,6 +44,16 @@
 // `.navDrawer_open`. Ubica la lista de idiomas dentro de Nav Drawer, abajo.
 // Agrega un padding-bottom en `.nav_main_ul` para darle espacio.
 // Solo tiene efecto cuando `$nav_drawer_act` tambien esta activada.
+// En `_nav_lang.scss` se aplica hasta 767px; el padding del Drawer usa
+// `navBT` de `[/etc/css/custom/_mediaQueries_mx.scss]` (REF [03]).
+// Con `on` genera una franja fija con borde, fondo y texto `::before`, cuyo
+// idioma depende de las clases `.lang_AR`, `.lang_DE`, `.lang_GB`, `.lang_BR`
+// o `.lang_CN`. Con `off` conserva la posicion alternativa: `left: 30px`
+// y `bottom: $nav_lang_ul_bottom`, sin esa franja.
+// La clase `.navDrawer_open` se agrega y se quita mediante el JavaScript
+// del Drawer; el activador no crea la lista ni cambia el idioma del sitio.
+// REF [37] La variante `_nav_lang_square.scss` tiene estilos propios y no
+// consume estos dos activadores.
 
 
 

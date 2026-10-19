@@ -10,6 +10,17 @@
 //
 // Lo que se active en este archivo luego debe configurarse en el .js
 // correspondiente al Slider.
+// Usar `on` para generar los estilos y `off` para omitir cada grupo.
+// Cargar `_slider.scss` desde `[/etc/css/custom/styles_main.scss]`, donde
+// su @use esta comentado. Los estilos generales de slider de ese parcial
+// se generan aunque estos cuatro activadores esten en `off`.
+// Los tamanos, separaciones y colores se configuran en
+// `[/etc/css/custom/var/_slider_var.scss]`.
+// Hay ejemplos de inicializacion en `[/etc/resources/slider/js/_slick.js]`
+// y `[/etc/resources/slider/js/_slick_nav.js]`; los valores SCSS no cambian
+// las opciones JavaScript ni crean los controles por si mismos.
+//
+// #activator #arrows #carousel #dots #pagination #slick #slider #vertical
 
 
 /* // Listado --------------------------------------------------------------- */
@@ -25,6 +36,11 @@
 // Imprime:
 // .slickPrev{}       
 // .slickNext{}
+// Genera posicion absoluta, imagenes de fondo, transicion y tamanos
+// responsive hasta 767px, desde 768px y desde 1024px. Las imagenes normales
+// son `slider_arrow_prev.svg` y `slider_arrow_next.svg` bajo `#{$dir_env}/img/`.
+// Habilitar `arrows: true` en la inicializacion y usar controles con las
+// clases `.slickPrev` y `.slickNext`, que son los selectores de este proyecto.
 //
 //
 // 02 _ $slider_arrows_carousel_act
@@ -40,6 +56,12 @@
 //
 // Requiere `$slider_arrows_act` activada para generar los estilos base de
 // `.slickPrev` y `.slickNext`.
+// En `.slick.slick_carousel` y `.slick_with_nav.slick_carousel` agrega fondo,
+// padding horizontal responsive y recorte de `.slick-list`.
+// En `.slick_carousel` cambia las imagenes a `button_carousel_left.svg` y
+// `button_carousel_right.svg`, y ajusta posicion y tamano de las flechas.
+// Los inicios de esos ajustes son 351px, 501px, 768px y 1024px, con una
+// regla inicial hasta 350px. El activador no agrega `.slick_carousel` al HTML.
 //
 //
 // 03 _ $slider_dots_act
@@ -50,14 +72,25 @@
 // .slickDots li{} 
 // .slickDots li.slickActive{} 
 // .slickDots li button{}   
+// Habilitar `dots: true` en la inicializacion y usar `.slickDots` para la
+// lista y `.slickActive` para el item activo. Los estilos centran la lista,
+// ocultan visualmente el texto de los botones y cambian imagen y opacidad
+// en los estados hover/focus y activo.
+// Usa `button_slider_pag.svg`, `button_slider_pag_hover.svg` y
+// `button_slider_pag_current.svg` bajo `#{$dir_env}/img/`.
 //
 //
 // 04 _ $slider_vertical_act
 // REF [09]
 // Activa el if que se encuentra en `[/etc/css/custom/_slider.scss]`.
 //
-// Genera ajustes de padding para `.slick.slick_vertical`. Las flechas
-// verticales se generan dentro de `$slider_arrows_act`.
+// Quita el padding horizontal de `.slick.slick_vertical` y
+// `.slick_with_nav.slick_vertical` hasta 767px, desde 768px y desde 1024px.
+// Configurar `vertical: true` en JavaScript y agregar `.slick_vertical` al
+// elemento correspondiente; el activador no cambia la direccion del slider.
+// Las imagenes `slider_arrow_prev_ver.svg` y `slider_arrow_next_ver.svg`
+// se aplican a `.slick_carousel.slick_vertical` dentro de `$slider_arrows_act`,
+// independientemente del valor de `$slider_vertical_act`.
 
 
 

@@ -6,6 +6,9 @@
 @use "sass:map";
 /* // Descripcion ----------------------------------------------------------- */
 // Archivo de variables activadoras para el selector `#main > section`.
+// Usar `on` para activar y `off` para desactivar cada variante.
+//
+// #activator #footer #fullHeight #header #page #responsive #section
 
 
 /* // Listado --------------------------------------------------------------- */
@@ -18,18 +21,39 @@
 // `[/etc/css/custom/imp/_footer_fullHeight_imp.scss]` y
 // `[/etc/css/custom/imp/_header_fullHeight_imp.scss]`
 //
-// y se importan en `[/etc/css/custom/_global.scss]`,
-// `[/etc/css/custom/_footer.scss]` y
-// `[/etc/css/custom/_header.scss]`
-// respectivamente.
-// Los tres imports correspondientes deben estar habilitados.
+// Habilitar la carga de los tres parciales. Actualmente `styles_main.scss`
+// tiene comentados los @use de `imp/page_section_fullHeight_imp` y
+// `imp/header_fullHeight_imp`; `_footer.scss` tiene comentado el @import
+// de `imp/footer_fullHeight_imp`.
+// Si se cargan con @use, cada parcial debe declarar sus propias dependencias
+// de activadores, alturas y mixins de media queries: actualmente solo carga
+// `sass:color` y `sass:map` y no recibe las variables del modulo que lo usa.
 // Variantes responsive: `ALL`, `B500`, `A500`, `500O`, `B768`, `A768`,
 // `A768B1024`, `B1024`, `A1024`, `A1024B1200`, `B1200` y `A1200`.
+// Los limites estan en `[/etc/css/custom/_mediaQueries_mx.scss]`:
+// - `ALL`: todos los anchos; `B500`: hasta 500px; `A500`: desde 501px.
+// - `500O`: de 501px a 767px; `B768`: hasta 767px; `A768`: desde 768px.
+// - `A768B1024`: de 768px a 1023px; `B1024`: hasta 1023px.
+// - `A1024`: desde 1024px; `A1024B1200`: de 1024px a 1200px.
+// - `B1200`: hasta 1200px; `A1200`: desde 1201px.
+// Las variantes se activan por separado. Si se superponen, los parciales
+// emiten las reglas en el orden del listado y prevalece la ultima aplicable
+// entre reglas de igual especificidad. `ALL` no activa las alturas responsive.
+//
+// Usa `$header_height_*` de `[/etc/css/custom/var/_header_var.scss]` y
+// `$footer_height_*` de `[/etc/css/custom/var/_footer_var.scss]` con el mismo
+// sufijo del activador. Ambos deben ser longitudes validas para `calc`,
+// incluyendo `0px` si corresponde; no pueden ser `auto`.
+// Los parciales de header y footer tambien fijan sus alturas globalmente
+// para cada variante activa; este grupo no las limita a una pagina concreta.
 //
 // Genera para cada media query:
 // #main > section{
 //     height: calc(100vh - $footer_height_* - $header_height_*);
 // }
+// Cada section hija directa recibe esa altura por separado. Las secciones
+// anidadas no coinciden con el selector. Se genera `height`, no `min-height`;
+// el calculo no se ajusta automaticamente al contenido de cada seccion.
 
 
 

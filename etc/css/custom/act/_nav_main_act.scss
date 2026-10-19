@@ -3,7 +3,13 @@
    ========================================================================== */ 
 
 /* // Descripcion ----------------------------------------------------------- */
-// Archivo de variables activadoras.
+// Activadores para modos, presentacion y submenus de la navegacion principal.
+// Usar `on` para activar y `off` para desactivar cada opcion.
+// Los activadores generan estilos para HTML existente; no crean los items.
+// REF [03] `navBT` y `navAT` usan `$mq_nav_BT` y `$mq_nav_AT` de
+// `[/etc/css/custom/var/_mediaQueries_var.scss]` (767px y 768px actualmente).
+// Las reglas con `beforeMQ768`, `afterMQ768` o `MQ768_1024` conservan sus
+// limites numericos aunque cambien los breakpoints de navegacion.
 //
 // REF [05] Container para doble nav
 // REF [11] Activador $hamburger_only_act
@@ -38,8 +44,11 @@
 // `[/etc/css/custom/_nav_main_accordion.scss]` y
 // `[/etc/css/custom/_nav_main_drawer.scss]`.
 //
-// En mobile cambia `.nav_main` de `position: fixed` a `position: absolute` y
-// ajusta la posicion del boton hamburger para los modos Drawer y Accordion.
+// En `settings_nav.scss`, dentro de `navBT`, cambia `.nav_main` de
+// `position: fixed` a `position: absolute`. El modo Drawer declara despues
+// `position: fixed` en `_nav_main_drawer.scss`, que prevalece en la cascada.
+// En Drawer y Accordion oculta visualmente el texto del boton de apertura y
+// lo hace cuadrado, con el icono centrado. Drawer tambien ajusta el cierre.
 // Tambien hay que asignar `$button_hamb_close_size: $button_hambOnly_size` en
 // `[/etc/css/custom/var/_button_nav_hamburger_var.scss]`.
 //
@@ -51,16 +60,23 @@
 // Desde 1024px, `$nav_text_white_act` agrega sombra oscura al texto durante
 // `:focus`, `:focus-visible` y `:hover`. `$nav_text_black_act` cambia el texto
 // a `$grey3XD` en esos estados.
+// Los estados se aplican al `li` de primer nivel y afectan a sus hijos
+// directos `a` y `.nav_TLI`. `_white` no asigna por si mismo texto blanco.
+// Ambas opciones son independientes: activarlas juntas genera ambos efectos.
 //
 //
 // 03 _ $nav_horizontalCenter_AT_act / $nav_horizontalCenter_TO_act /
 //      $nav_horizontalCenter_A1024_act
 // Activa los if que se encuentran en `[/etc/css/custom/_nav_main_AT.scss]`.
 //
-// `$nav_horizontalCenter_AT_act` centra la navegacion desde el breakpoint
-// `navAT`. `$nav_horizontalCenter_TO_act` la centra solo entre 768px y 1023px
-// cuando `_AT` esta desactivada. `$nav_horizontalCenter_A1024_act` la centra
-// desde 1024px.
+// `$nav_horizontalCenter_AT_act` aplica `justify-content: center`, margenes
+// laterales automaticos y `text-align: center` desde `navAT`.
+// `$nav_horizontalCenter_TO_act` aplica margenes automaticos, alineacion de
+// texto y elementos inline-block entre 768px y 1023px cuando `_AT` esta
+// desactivada. `$nav_horizontalCenter_A1024_act` aplica esos ajustes desde
+// 1024px. Estas dos variantes no cambian `justify-content` de la lista flex.
+// Si `$header_logoNav_floated_flexbox_act_A768` esta activa, la regla
+// posterior `.nav_main_ul.navAT` usa `justify-content: flex-end`.
 //
 //
 // 04 _ $nav_topper_act
@@ -73,6 +89,9 @@
 //
 // Genera la variante `.nav_topper` fija, sus colores, alturas y estilos para
 // items actuales y submenus.
+// Requiere agregar `.nav_topper` al header y/o a `.nav_main` segun el
+// elemento a modificar; el activador no agrega la clase durante el scroll.
+// Tambien establece `min-height: 700px` en `#main` desde 768px.
 //
 //
 // 05 _ $nav_fixed_A768_act
@@ -80,6 +99,9 @@
 // Activa los if que se encuentran en `[/etc/css/custom/_nav_main_AT.scss]` y
 // `[/etc/css/custom/_header.scss]`.
 // Genera declaraciones para el selector `.nav_main` AT
+// La posicion fija usa `navAT`; el padding del header usa `afterMQ768`.
+// Este activador fija la navegacion; `$header_fixed_act_*` controla el header
+// completo desde `[/etc/css/custom/act/_header_act.scss]` (REF [08]).
 //
 // #header{
 //     padding-top: $nav_height_A768;
@@ -101,6 +123,13 @@
 // - `$classes_container_act_A768: on` en
 //   `[/etc/css/custom/act/_classes_useful_act.scss]`.
 // - `$nav_double_A768_act = 1` en `[/src/var/act/nav.act.inc.php]`.
+// REF [05] Los estilos condicionales estan en
+// `[/etc/css/scss/settings_nav.scss]`; `_nav_main_AT.scss` tambien contiene
+// reglas incondicionales para `.navs_container_AT`.
+// El contenedor PHP usa `.displayFlexAT`, que requiere
+// `$classes_flexbox_act_A768: on` en `_classes_useful_act.scss`.
+// La segunda lista debe incluirse en el HTML; el include de idiomas que
+// sirve como ejemplo esta comentado en `[/src/common/nav.main.inc.php]`.
 //
 // `$nav_drawer_act`, `$nav_accordion_act` y `$nav_list_act` activan sus
 // respectivos modos:
@@ -114,6 +143,10 @@
 //
 // Drawer y Accordion tambien deben coincidir con las variables PHP del mismo
 // nombre en `[/src/var/act/nav.act.inc.php]`.
+// REF [06] Usar el modo correspondiente al HTML y al JavaScript cargado.
+// Los if de estos tres modos son independientes y pueden generar reglas
+// superpuestas si se activan varios. List solo controla sus estilos SCSS;
+// no tiene una variable PHP equivalente en ese archivo.
 //
 //
 // 07 _ $nav_hasSub_act / $nav_hasSub_level1_act /
@@ -130,6 +163,13 @@
 // `_nav_main_AT.scss`.
 //
 // `$nav_sub_centered_AT` centra horizontalmente los submenus desde `navAT`.
+// En `_nav_main_AT.scss` requiere `$nav_hasSub_act: on` para generar
+// `left: 50%` y el margen negativo de medio ancho del submenu.
+// Los niveles no activan automaticamente `$nav_hasSub_act` ni generan HTML.
+// Usar las clases `.nav_subNav_level1`, `.nav_subNav_level2` y
+// `.nav_subNav_level3` segun la estructura de cada submenu.
+// REF [07] `$nav_SECTION_hasSub_act` es una opcion PHP diferente: genera el
+// item de regreso al menu principal en `[/src/common/nav.main.inc.php]`.
 //
 //
 // 08 _ $nav_item_current_bdB_act
@@ -137,6 +177,9 @@
 // Activa el if que se encuentra en `[/etc/css/custom/_nav_main_AT.scss]`.
 //
 // Genera un borde inferior para el item actual desde `navAT`.
+// Usa un borde solido de 3px con `$nav_item_current_bdColour` de
+// `[/etc/css/custom/var/_nav_colours_var.scss]`, en `a` y `.nav_TLI` dentro
+// de items de primer nivel con `.uk-active` o `.nav_item_current`.
 
 
 

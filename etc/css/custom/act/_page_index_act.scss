@@ -6,6 +6,12 @@
 @use "sass:map";
 /* // Descripcion ----------------------------------------------------------- */
 // Activadores para Page Index.
+// Usar `on` para activar y `off` para desactivar cada opcion.
+// REF [04] Full height, index only.
+// Las alturas se calculan con `$header_height_*` y `$footer_height_*` de
+// `[/etc/css/custom/var/_header_var.scss]` y
+// `[/etc/css/custom/var/_footer_var.scss]`, usando el sufijo correspondiente.
+// Ambos valores deben ser longitudes validas para `calc`; no pueden ser `auto`.
 //
 // #activator #footer #fullHeight #header #index
 
@@ -21,12 +27,26 @@
 // `[/etc/css/custom/imp/_footer_fullHeight_imp.scss]` y
 // `[/etc/css/custom/imp/_header_fullHeight_imp.scss]`.
 //
-// Los imports correspondientes deben estar habilitados en `_page_index.scss`,
-// `_footer.scss` y `_header.scss`.
+// Habilitar la carga de los tres parciales. Actualmente `_page_index.scss`
+// y `_footer.scss` tienen @import comentados; `styles_main.scss` tiene el
+// @use de `imp/header_fullHeight_imp` comentado.
+// Si se cargan con @use, cada parcial debe declarar sus propias dependencias
+// de activadores, alturas y mixins de media queries: actualmente solo carga
+// `sass:color` y `sass:map` y no recibe las variables del modulo que lo usa.
 // Este grupo aplica las alturas de header y footer de forma global.
 //
 // Variantes responsive: `ALL`, `B500`, `A500`, `500O`, `B768`, `A768`,
 // `A768B1024`, `B1024`, `A1024`, `A1024B1200`, `B1200` y `A1200`.
+// Sus limites se definen en `[/etc/css/custom/_mediaQueries_mx.scss]`:
+// - `ALL`: todos los anchos; `B500`: hasta 500px; `A500`: desde 501px.
+// - `500O`: de 501px a 767px; `B768`: hasta 767px; `A768`: desde 768px.
+// - `A768B1024`: de 768px a 1023px; `B1024`: hasta 1023px.
+// - `A1024`: desde 1024px; `A1024B1200`: de 1024px a 1200px.
+// - `B1200`: hasta 1200px; `A1200`: desde 1201px.
+// Las variantes se activan por separado y pueden superponerse. Los parciales
+// emiten las reglas en el orden de este listado; entre reglas de igual
+// especificidad prevalece la ultima aplicable.
+// `ALL` usa primero las alturas `_ALL`; no activa las alturas responsive.
 //
 // Ej. `$page_index_fullHeight_act_A500: on;` imprime:
 // @media (min-width: 501px) {
@@ -42,12 +62,8 @@
 // `[/etc/css/custom/imp/_footer_fullHeight_imp.scss]` y
 // `[/etc/css/custom/imp/_header_fullHeight_imp.scss]`
 //
-// y se importan en
-// `[/etc/css/custom/_page_index.scss]`,
-// `[/etc/css/custom/_footer.scss]` y
-// `[/etc/css/custom/_header.scss]`
-// respectivamente.
-// Los tres imports correspondientes deben estar habilitados.
+// Requiere habilitar los mismos tres parciales y sus dependencias, como
+// se indica en el grupo 01.
 // Usa las mismas variantes responsive que `$page_index_fullHeight_act_*`.
 //
 // Con Index Full Height activado la variable `$header_height_*` no puede ser
@@ -55,6 +71,11 @@
 // REF [04] `[/etc/css/custom/var/_header_var.scss]`
 // Ademas de imprimir lo mismo que `01 Full Height`, limita las alturas de
 // header y footer a los elementos con las clases especificas de Index:
+// Estas clases se arman en `[/src/var/class.var.inc.php]` cuando
+// `$nav_pageCurrent` es `page_index`; deben estar presentes en el HTML.
+// Las dos familias usan el mismo selector `.page_index` para la altura del
+// contenido. La familia `only` no desactiva las alturas globales generadas
+// por `$page_index_fullHeight_act_*` o `$page_section_fullHeight_act_*`.
 //
 // #header.header_page_index{
 //     height: $header_height;
@@ -63,6 +84,8 @@
 // #footer.footer_page_index{
 //     height: $footer_height;
 // }
+// Se genera `height`, no `min-height`: el calculo no adapta la altura al
+// contenido ni mide header y footer mediante JavaScript.
 
 
 

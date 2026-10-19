@@ -4,6 +4,7 @@
 
 /* // Descripcion ----------------------------------------------------------- */
 // Activadores para logo.
+// Usar `on` para activar y `off` para desactivar esta opcion.
 //
 // #activator #before #header #logo
 
@@ -18,11 +19,19 @@
 // Tambien requiere `$logo_bgImage_before_act = 1` en
 // `[/src/var/act/header.act.inc.php]` para que PHP genere `div.logo_before`.
 //
-// Genera clases para el elemento `div.logo_before` detras del logo que tiene
-// una imagen de fondo en `/img/logo_bg_before.png` del entorno activo.
+// Genera reglas para `.logo_before`, el elemento que envuelve la imagen del
+// logo en `[/src/common/_header.inc.php]`, con `position: relative` y fondo
+// `#{$dir_env}/img/logo_bg_before.png`, centrado, sin repeticion y con
+// `background-size: auto 100%`.
 // En `[/etc/img/logo_bg_before.psd]` hay un template para crearla.
 //
-// Tambien genera clases para los tamanos de `.logo_header`, `a` e `img` dentro.
+// Ajusta los tamanos de `.logo_header`, `a` e `img` en las media queries de
+// `_header.scss`, usando `$logo_width_*` y `$logo_height_*_before` de
+// `[/etc/css/custom/var/_logo_sizes_var.scss]`.
+// Con `off` se conservan las reglas generales de tamano del logo.
+// REF [43] Cuando el Drawer esta abierto, `.logo_header.navDrawer_open`
+// aplica sus propios tamanos y quita el fondo de `.logo_before`, hasta 767px
+// y con `$nav_drawer_act: on`.
 
 
 

@@ -4,6 +4,7 @@
 
 /* // Descripcion ----------------------------------------------------------- */
 // Archivo de variables activadoras para elementos de Google.
+// Usar `on` para activar y `off` para desactivar los ajustes de reCaptcha.
 //
 // #activator #google #captcha #recaptcha #forms
 //
@@ -16,6 +17,10 @@
 // 01 _ $google_captcha_act
 // Si se activa `$google_captcha_act` tambien hay que activar `$has_captcha` en 
 // `[/src/var/form.var.inc.php]`
+// Este activador genera estilos; la carga de la API y la validacion del
+// formulario se configuran por separado en PHP y JavaScript (REF [50]).
+// `[/src/common/head.js.inc.php]` carga la API cuando `$has_captcha == 1`
+// y `$dir_env` esta vacio; activar el SCSS no modifica esa condicion.
 //
 // Activa el if que se encuentra en `[/etc/css/custom/_buttons.scss]`.
 //
@@ -23,11 +28,13 @@
 // el badge de captcha. Cuando esta desactivada, el boton usa `bottom: 40px;`.
 //
 // Imprime:
-// .button_whatsApp_anchor{
+// #selector .button_whatsApp_anchor{
 //   bottom: 80px;
 // }
 //
 // Activa el if que se encuentra en `[/etc/css/custom/_global.scss]`.
+// Usa `$zIndex_captcha_badge` de `[/etc/css/custom/var/_zindex_var.scss]`.
+// Con `off` omite esta regla; no oculta ni desactiva el badge.
 //
 // Imprime la regla:
 // .grecaptcha-badge{

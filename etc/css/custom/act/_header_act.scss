@@ -4,6 +4,12 @@
 
 /* // Descripcion ----------------------------------------------------------- */
 // Activadores para Section Header.
+// Usar `on` para activar y `off` para desactivar cada opcion.
+//
+// #activator #header #logo #nav #flexbox #fixed #responsive
+//
+// REF [03] Media queries para Nav BT / AT
+// REF [08] Activador de Header Fixed
 
 
 /* // Listado --------------------------------------------------------------- */
@@ -15,6 +21,10 @@
 // 01 _ $header_logoNav_floated_act
 // Activa los if que se encuentran en `[/etc/css/custom/_header.scss]` y
 // `[/etc/css/custom/_nav_main_AT.scss]`.
+// El logo flota desde 768px; la navegacion flota desde `navAT` (REF [03]).
+// Los anchos se toman de `$logo_width_A768`, `$logo_width_A1024`,
+// `$logo_width_A1100` y `$logo_width_A1200` en
+// `[/etc/css/custom/var/_logo_sizes_var.scss]`.
 //
 // Imprime:
 // #header .logo_header{
@@ -36,6 +46,12 @@
 // o `_A1200`.
 // En el breakpoint activado genera flexbox para `#header .container` y ajusta
 // el ancho de `.nav_main` segun el ancho responsive del logo.
+// Requiere un elemento `.container` dentro de `#header`.
+// Los inicios son 768px, 1024px, 1101px y 1201px, respectivamente, segun
+// `[/etc/css/custom/_mediaQueries_mx.scss]`. Las reglas flexbox permanecen
+// vigentes a anchos mayores por la cascada.
+// En `_nav_main_AT.scss`, la condicion de 1201px no incluye `_A1100`:
+// si solo esa variante esta activa, conserva el calculo con `$logo_width_A1100`.
 //
 // Imprime:
 // #header .container{
@@ -61,11 +77,24 @@
 // Activa los if que se encuentran en
 // `[/etc/css/custom/imp/_page_headerFixed_imp.scss]` y
 // `[/etc/css/custom/imp/_header_headerFixed_imp.scss]`.
-// Se debe habilitar la carga de los archivos en `styles_main.scss`
+// Se debe habilitar la carga de ambos archivos en
+// `[/etc/css/custom/styles_main.scss]`; sus @use estan comentados actualmente.
+// Revisar tambien sus rutas @use internas antes de habilitarlos: los parciales
+// estan dentro de `imp/` y las rutas se resuelven desde ese directorio.
 //
-// `_ALL` aplica el header fijo en todos los tamanos. Las variantes `B500`,
-// `A500`, `500O`, `B768`, `A768`, `nav_BT`, `nav_AT` y `A1024` limitan los
-// estilos a sus media queries correspondientes.
+// `_ALL` aplica el header fijo en todos los tamanos. `_B500` llega hasta
+// 500px; `_A500` comienza en 501px; `_500O` abarca de 501px a 767px;
+// `_B768` llega hasta 767px; `_A768` comienza en 768px y `_A1024`, en 1024px.
+// `_nav_AT` usa `$mq_nav_AT` de `[/etc/css/custom/var/_mediaQueries_var.scss]`.
+// Las variantes pueden superponerse; prevalecen las declaraciones posteriores.
+//
+// El bloque `navBT` de `_header_headerFixed_imp.scss` esta comentado:
+// `_nav_BT` solo agrega padding en `_page_headerFixed_imp.scss` y no fija
+// el header por si mismo. Ese padding usa `navBT` y `$mq_nav_BT` (REF [03]).
+// Las alturas y `$page_PT_*` se definen en
+// `[/etc/css/custom/var/_header_var.scss]`; las sombras, en
+// `[/etc/css/custom/var/_shadows_var.scss]`.
+// `.header_scrolled_js` cambia la sombra a `$bxShadow_header_fixed_scrolled`.
 //
 // Imprime:
 // #header{
@@ -76,9 +105,11 @@
 //     box-shadow: $bxShadow_header_fixed;
 //     height: $header_height;
 // }
-// #main{
+// #header{
 //     padding-top: $page_PT;
 // }
+// El selector actual del parcial `_page_headerFixed_imp.scss` es `#header`;
+// no genera una compensacion de espacio en `#main`.
 
             
 

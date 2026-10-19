@@ -5,7 +5,8 @@
 @use "sass:color";
 @use "sass:map";
 /* // Descripcion ----------------------------------------------------------- */
-// Archivo de variables activadoras.
+// Activadores responsive para distribuir el logo y el texto del footer.
+// Usar `on` para activar y `off` para desactivar cada variante.
 //
 // #activator #flexbox #footer
 
@@ -22,6 +23,16 @@
 //
 // Genera declaraciones para `.logo_footer_container` y `.footer_txt`.
 // Deben estar dentro de un contenedor con `.displayFlex`.
+// Este activador no genera `display: flex` ni declaraciones `float`.
+// Si se usa `.displayFlex`, habilitar `$classes_flexbox_act_ALL` en
+// `[/etc/css/custom/act/_classes_useful_act.scss]`.
+//
+// Usa `$footer_logoFloated_width_*` de
+// `[/etc/css/custom/var/_logo_sizes_var.scss]` para el ancho del logo y asigna
+// `calc(100% - anchoDelLogo)` a `.footer_txt`. `.logo_footer` ocupa el 100%
+// de su contenedor. Desde 768px agrega padding horizontal de 20px al contenedor.
+// Las ramas desactivadas de B500, A500, A768 y A1024 asignan al logo los
+// anchos `$logo_width_footer_*` de `[/etc/css/custom/var/_logo_sizes_var.scss]`.
 //
 // Variantes responsive:
 // - `_B500`: hasta 500px.
@@ -34,6 +45,9 @@
 // Si `_A500` esta activada, el contenido flotado tambien permanece activo
 // desde 768px y 1024px. Si `_A768` esta activada, tambien permanece activo
 // desde 1024px.
+// `_A600` no participa en esas condiciones de 768px y 1024px: sus anchos
+// de contenedor y texto siguen en la cascada, pero las reglas posteriores
+// pueden cambiar el ancho del logo. Revisar las variantes que se superponen.
 
 
 

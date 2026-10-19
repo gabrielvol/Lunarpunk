@@ -4,6 +4,7 @@
 
 /* // Descripcion ----------------------------------------------------------- */
 // Activadores para botones.
+// Usar `on` para activar y `off` para desactivar cada opcion.
 //
 // #activator #button #class #colour #mixin #pointer
 
@@ -18,6 +19,10 @@
 //
 // Genera selectores de color para el elemento `button`, sus pseudo-clases `:focus`
 // y `:hover`, y la clase `.noHover`
+// Las clases salen de `$colours_light_map` y `$colours_dark_map` en
+// `[/etc/css/custom/var/_colours_main_var.scss]`.
+// En `:focus` y `:hover`, los colores claros se oscurecen y los oscuros se
+// aclaran segun el parametro del mixin. `.noHover` conserva el color original.
 //
 // Ej. con color `greenSystemM`:
 // button.greenSystemM,
@@ -29,6 +34,10 @@
 // Tambien genera selectores para las pseudo-clases `:focus` y `:hover` del
 // elemento `button`, usando como clase cada clave declarada en
 // `$colours_backgrounds_hover_map`.
+// El mapa se encuentra en `[/etc/css/custom/var/_colours_backgrounds_var.scss]`.
+// Estos selectores se generan al incluir los mixins correspondientes en
+// `[/etc/css/scss/settings_text.scss]` y
+// `[/etc/css/custom/_includes_backgrounds.scss]`; el activador solo no los emite.
 //
 // Ej. con la clave `mainBgColour`:
 // button.mainBgColour:hover,
@@ -39,6 +48,7 @@
 // Activa el if que se encuentra en `[/etc/css/custom/_buttons.scss]`
 //
 // Genera la declaracion `cursor: pointer;` para el elemento `button`.
+// Con `off` no genera esta declaracion; otras reglas pueden definir el cursor.
 //
 // button{
 //    cursor: pointer;

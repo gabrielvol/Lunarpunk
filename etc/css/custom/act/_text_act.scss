@@ -6,6 +6,7 @@
 @use "sass:map";
 /* // Descripcion ----------------------------------------------------------- */
 // Archivo de variables activadoras para texto en general.
+// Usar `on` para generar la regla y `off` para omitirla.
 //
 // #activator #anchor #focus #hover #li #p #text #underline
 
@@ -19,6 +20,12 @@
 //
 // Genera subrayado para las anclas dentro de elementos `p` y `li` cuando el
 // contenedor tiene `:focus`, `:focus-visible` o `:hover`.
+// Afecta a todas las anclas descendientes, a cualquier ancho de pantalla.
+// El estado se comprueba sobre `p` o `li`; no incluye `:focus-within` ni
+// agrega un estado `a:focus` propio.
+// Con `off` no genera una regla que quite el subrayado: se conservan los
+// estilos de anclas definidos en otras reglas. Las reglas posteriores o mas
+// especificas pueden modificar el resultado.
 //
 // Imprime:
 // p:focus a,
