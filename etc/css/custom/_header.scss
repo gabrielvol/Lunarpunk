@@ -11,12 +11,9 @@
 
 @use "../scss/var_all_pre" as *;
 
-//@import 'imp/header_fullHeight_imp';
-//@import 'imp/header_headerFixed_imp';
-
 #header{
     box-sizing: border-box;
-/*
+/* // REF [08]
     position: relative;
     z-index: $zIndex_header;
 */

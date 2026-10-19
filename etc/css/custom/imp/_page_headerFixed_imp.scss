@@ -2,13 +2,10 @@
    Page Int Section Full Height Styles | Custom [/etc/css/custom/imp/page_headerFixed_imp.scss]
    ========================================================================== */
 
-@use "sass:color";
-@use "sass:map";
 /* // Descripcion ----------------------------------------------------------- */
 // Archivo de estilos scss.
-// Imported in `[/etc/css/custom/_global.scss]`
 
-
+// REF [08] 
 
 /* // Referencias globales de nombres de variables y mixins ----------------- */
 ///-- Inicio del nombre
@@ -47,7 +44,14 @@
 
 
 
-#main{    
+@use "sass:color";
+@use "sass:map";
+
+@use "var/env_var" as *;
+
+@use "../scss/var_all_pre" as *;
+
+#header{         
     @include beforeMQ500{
         @if $header_fixed_act_B500 == "on" or $header_fixed_act_ALL == "on"{
             padding-top: $page_PT_B500;

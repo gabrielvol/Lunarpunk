@@ -33,6 +33,9 @@
 //@use "print" as *;
 
 @use "global" as *;
+// @use "imp/page_section_fullHeight_imp" as *;
+// @use "imp/page_headerFixed_imp" as *; /* // REF [08] */
+
 @use "list" as *;
 @use "buttons" as *;
 @use "hover" as *;
@@ -55,6 +58,9 @@
 @use "popup" as *;
 
 @use "header" as *;
+// @use "imp/header_fullHeight_imp" as *;
+// @use "imp/header_headerFixed_imp" as *; /* // REF [08] */
+
 //@use "social" as *;
 @use "footer" as *;
 

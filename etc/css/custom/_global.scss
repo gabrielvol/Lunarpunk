@@ -54,9 +54,6 @@
 @use "var/text_var" as *;
 
 /* // Main Gobal Styles ----------------------------------------------------- */
-//@import 'imp/page_section_fullHeight_imp';
-//@import 'imp/page_headerFixed_imp';
-
 #dev_window_width{
     /* // REF [48] Dev window width */
     @include borderStyle($bgGrey3XL);    

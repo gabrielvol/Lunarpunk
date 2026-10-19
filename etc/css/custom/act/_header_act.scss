@@ -61,8 +61,7 @@
 // Activa los if que se encuentran en
 // `[/etc/css/custom/imp/_page_headerFixed_imp.scss]` y
 // `[/etc/css/custom/imp/_header_headerFixed_imp.scss]`.
-// Los imports de estos archivos deben estar habilitados en `_global.scss` y
-// `_header.scss`.
+// Se debe habilitar la carga de los archivos en `styles_main.scss`
 //
 // `_ALL` aplica el header fijo en todos los tamanos. Las variantes `B500`,
 // `A500`, `500O`, `B768`, `A768`, `nav_BT`, `nav_AT` y `A1024` limitan los

@@ -2,13 +2,10 @@
    Header Fixed Styles | Custom [/etc/css/custom/imp/header_headerFixed_imp.scss]
    ========================================================================== */
 
-@use "sass:color";
-@use "sass:map";
 /* // Descripcion ----------------------------------------------------------- */
 // Archivo de estilos scss.
-// Imported in `[/etc/css/custom/_header.scss]`
 
-
+// REF [08] 
 
 /* // Referencias globales de nombres de variables y mixins ----------------- */
 ///-- Inicio del nombre
@@ -47,7 +44,14 @@
 
 
 
-#header{        
+@use "sass:color";
+@use "sass:map";
+
+@use "var/env_var" as *;
+
+@use "../scss/var_all_pre" as *;
+
+#header{           
     @if $header_fixed_act_ALL == "on"{
         position: fixed;
         top: 0;
