@@ -1,16 +1,17 @@
 /* =============================================================================
-   gulpfile.js — SASS → CSS (autoprefix + minify) — Node 22+ compatible
+   gulpfile.js — SASS → CSS (autoprefix + minify) — Node 20.19+ compatible
    Reqs:
-     npm i -D gulp sass gulp-dart-sass gulp-postcss autoprefixer cssnano gulp-sourcemaps fancy-log
+     npm i -D gulp sass gulp-sass gulp-postcss autoprefixer cssnano fancy-log
    Tasks:
      gulp         -> build once
      gulp watch   -> build once, then watch .scss and rebuild on save
    ============================================================================= */
 
 const { src, dest, series, watch } = require('gulp');
-const gulpSass     = require('gulp-dart-sass');
+const gulpSass     = require('gulp-sass')(require('sass'));
 const postcss      = require('gulp-postcss');
-const sourcemaps   = require('gulp-sourcemaps');
+const { pipeline } = require('node:stream/promises');
+const { Transform } = require('node:stream');
 const autoprefixer = require('autoprefixer');
 const cssnano      = require('cssnano');
 const log          = require('fancy-log');
@@ -30,19 +31,22 @@ const paths = {
   cssOutFinal: 'src/css',             // final minified output
 };
 
-// --- Helpers ---
-function onError(err) {
-  log.error('❌ Gulp error:', err.message || err);
-  this.emit && this.emit('end');
-}
-
-// Convert a vinyl stream into a Promise so Gulp waits correctly
-function streamToPromise(stream) {
-  return new Promise((resolve, reject) => {
-    stream.on('error', reject);
-    // some plugins end on 'end', others on 'finish' after dest()
-    stream.on('finish', resolve);
-    stream.on('end', resolve);
+// Source paths must be relative to the emitted map, including on Windows.
+function prepareSourceMap() {
+  return new Transform({
+    objectMode: true,
+    transform(file, encoding, callback) {
+      try {
+        file.sourceMap.sources = file.sourceMap.sources.map(source =>
+          path.relative(path.resolve(paths.cssOutTemp), path.resolve(file.base, source))
+            .split(path.sep).join('/')
+        );
+        file.contents = Buffer.from(file.contents.toString().trimEnd() + '\n');
+        callback(null, file);
+      } catch (err) {
+        callback(err);
+      }
+    },
   });
 }
 
@@ -50,13 +54,12 @@ function streamToPromise(stream) {
 function compileSass() {
   const t0 = Date.now();
   const jobs = paths.scssEntries.map(entry => {
-    const s = src(entry.in, { allowEmpty: true })
-      .pipe(sourcemaps.init())
-      .pipe(gulpSass({ outputStyle: 'expanded' }).on('error', gulpSass.logError))
-      .on('error', onError)
-      .pipe(sourcemaps.write('.'))
-      .pipe(dest(paths.cssOutTemp)); // writes <inputName>.css and .map
-    return streamToPromise(s);
+    return pipeline(
+      src(entry.in, { sourcemaps: true }),
+      gulpSass({ style: 'expanded' }),
+      prepareSourceMap(),
+      dest(paths.cssOutTemp, { sourcemaps: '.' })
+    );
   });
 
   return Promise.all(jobs).then(() => {
@@ -70,14 +73,11 @@ function processCSS() {
   const t0 = Date.now();
 
   const jobs = paths.scssEntries.map(entry => {
-    const s = src(path.join(paths.cssOutTemp, entry.out), {
-      allowEmpty: true,
-      base: paths.cssOutTemp,
-    })
-      .pipe(postcss(plugins))
-      .on('error', onError)
-      .pipe(dest(paths.cssOutFinal)); // -> src/css/<filename>.css
-    return streamToPromise(s);
+    return pipeline(
+      src(path.join(paths.cssOutTemp, entry.out), { base: paths.cssOutTemp }),
+      postcss(plugins),
+      dest(paths.cssOutFinal)
+    );
   });
 
   return Promise.all(jobs).then(() => {
@@ -87,8 +87,8 @@ function processCSS() {
 
 // 3) Watcher with logs (no initial build here)
 function watchSCSS() {
-  log('👀 Watching SCSS...');
   return watch(paths.scssWatch, { delay: 200 }, series(compileSass, processCSS))
+    .on('ready', () => log('👀 Watching SCSS...'))
     .on('change', p => log(`📄 Changed: ${p}`))
     .on('add',    p => log(`➕ Added:   ${p}`))
     .on('unlink', p => log(`🗑  Removed: ${p}`));
